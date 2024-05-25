@@ -1,0 +1,670 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /*padding: 6rem;*/
+  min-height: 100vh;
+}
+
+.bar1Bg{
+  width: 100vw;
+  height: 100vh;
+  background: url("../../public/背景.png");
+  background-size: 100vw 100vh;
+  padding-left: 18.75vw;
+  padding-top: 21vh;
+  position: relative;
+  /*background-color: #515357;*/
+}
+
+.bar1BgText1{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  line-height: 28px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  display: flex;
+}
+
+.bar1BgText2{
+  font-family: PangMenZhengDao, PangMenZhengDao;
+  font-weight: 400;
+  font-size: 5.18vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #515357 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-top: 0.5vh;
+}
+
+.bar1BgText3{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size: 4.07vh;
+  color: #BBFF19;
+  line-height: 62px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  margin-top: 0.5vh;
+}
+
+.bar1BgText4{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size: 4.07vh;
+  line-height: 6vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-top: 1vh;
+}
+
+.bar1BgBarBox{
+  display: flex;
+  margin-top: 16vh;
+}
+
+.bar1BgBarBoxImg{
+  width: 8.79vh;
+  height: 6.48vh;
+  background: url("../../public/组 131.png");
+  background-size:8.79vh 6.48vh;
+}
+
+.bar1BgBarBoxtext{
+  margin-left: 3vh;
+  width: 60vh;
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9D9D9D;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.bar1BgRightImg{
+  width: 80.5vh;
+  height: 75vh;
+  background: url("../../public/主体.png");
+  background-size: 80.5vh 75vh;
+  position: absolute;
+  top: 10vh;
+  right: 8vw;
+}
+
+.barDownLoadBg{
+  width: 52.4vh;
+  height: 6.3vh;
+  background: rgba(255,255,255,0.8);
+  border-radius: 8px 8px 8px 8px;
+  align-self: flex-end;
+  /*margin-left: 15vh;*/
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 2vh;
+}
+
+.barDownLoadBgLogo{
+  height: 3.7vh;
+  width: 3.7vh;
+  background: url("../../public/app/组 133625@2x.png");
+  background-size: 3.7vh 3.7vh;
+  margin-right: 2vh;
+}
+
+.barDownLoadBgTitle1{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 500;
+  font-size: 2vh;
+  color: #060606;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.barDownLoadBgTitle2{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 400;
+  font-size: 1vh;
+  color: #858585;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.barDownLoadBgBox{
+  height: 3.7vh;
+  width: 12vh;
+  background-color: #060606;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2vh;
+}
+
+.barDownLoadBgBoxLogo1{
+  height: 2vh;
+  width: 2vh;
+  background: url("../../public/app/容器@2x.png");
+  background-size: 2vh 2vh;
+}
+.barDownLoadBgBoxLogo2{
+  height: 2vh;
+  width: 2vh;
+  background: url("../../public/app/容器1@2x.png");
+  background-size: 2vh 2vh;
+}
+
+.barDownLoadBgBoxLogo1Text{
+  margin-left: 1vh;
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 500;
+  font-size: 1.5vh;
+  color: #FFFFFF;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.bar2Bg{
+  width: 100vw;
+  /*height: 100vh;*/
+  background: url("../../public/en/容器 133445@2x.webp");
+  background-size: 100vw ;
+  padding-top: 8vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar2BgLeft{
+
+  width: 68.51vh;
+  height: 59.25vh;
+  background: url("../../public/en/容器 133446@2x.png");
+  background-size: 68.51vh 59.25vh;
+
+}
+
+.bar2BgText{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size: 3.7vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(180deg, #FFFFFF 0%, #515357 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-top: 1vh;
+  display: flex;
+}
+
+.bar2BgTextu1{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size: 3.7vh;
+  text-align: left;
+  font-style: normal;
+  color: #BBFF19;
+}
+
+.bar2BgText1{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size: 3.7vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-top: 1vh;
+}
+
+.bar2BgText2{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9D9D9D;
+  line-height: 32px;
+  text-align: justify;
+  font-style: normal;
+  text-transform: none;
+  margin-top: 1vh;
+}
+
+.bar2BgTextBtn{
+  width: 187px;
+  height: 40px;
+  margin-top: 4vh;
+  background: #BBFF19;
+  border-radius: 12px 12px 12px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 500;
+  font-size: 17px;
+  color: #060606;
+  line-height: 24px;
+  text-align: right;
+  font-style: normal;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.bar2BgTextBtnImg{
+  width: 20px;
+  height: 20px;
+  background: url("../../public/en/容器.png");
+  background-size: 20px 20px;
+}
+
+.bar2Bgbar1{
+  display: flex;
+  margin-top: 1vh;
+}
+
+.bar2Bgbar1Img{
+  width: 20px;
+  height: 20px;
+  background: url("../../public/en/星形 1@2x.png");
+  background-size: 20px 20px;
+}
+
+.bar3Bg{
+  width: 100vw;
+  background: url("../../public/en/容器 133485@2x.png");
+  background-size: cover;
+  padding: 10vh 10vw;
+  padding-top: 21vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-color: #1ff688;*/
+}
+
+.bar3BgTxt1{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size: 3.7vh;
+  color: #FFFFFF;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  display: flex;
+  align-items: center;
+}
+
+.bar3BgTxt2{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size:  3.7vh;
+  color: #BBFF19;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.bar3BgTxt3{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size:  3.7vh;
+  color: rgba(0,0,0,0.2);
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(180deg, #FFFFFF 0%, #515357 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bar3BgBar{
+  width: 55vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /*background-color: #1FF688;*/
+}
+
+.bar3BgBarText1{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size:  3.7vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 1vh;
+}
+.bar3BgBarText2{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 1.4vh;
+  color: #9D9D9D;
+  line-height: 32px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.bar3BgBottomBar{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 5vh;
+  height: 45vh;
+}
+
+.bar3BgBottomBarBox1{
+  width: 37vh;
+  height: 38vh;
+  /*background: url("../../public/en/矩形 175@2x.png");*/
+  background: radial-gradient( 0% 95% at -69% 38%, #343734 0%, #0F1112 100%);
+  /*border: 2px solid;*/
+  /*border-color: rgba(255, 255, 255, 0.33000001311302185);*/
+  /*border-image: linear-gradient(136deg, rgba(255, 255, 255, 0.33000001311302185), rgba(255, 255, 255, 0)) 2 2;*/
+  padding: 2vh 2vh;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.bar3BgBottomBarBox1on{
+  width: 37vh;
+  height: 45vh;
+  /*background: url("../../public/en/矩形 175@2x.png");*/
+  background-color: rgba(187, 255, 25, 1);
+  padding: 2vh 2vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar3BgBottomBarBox1onImg1{
+  width: 30vh;
+  height: 30vh;
+  background: url("../../public/pro/容器 133614@2x.png");
+  background-size: 30vh 30vh;
+}
+
+.bar3BgBottomBarBox1onImg2{
+  width: 30vh;
+  height: 30vh;
+  background: url("../../public/pro/容器 1336141@2x.png");
+  background-size: 30vh 30vh;
+}
+
+.bar3BgBottomBarBox1onImg3{
+  width: 30vh;
+  height: 30vh;
+  background: url("../../public/pro/容器 1336142@2x.png");
+  background-size: 30vh 30vh;
+}
+
+.bar3BgBottomBarBox1onImg1Text{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 500;
+  font-size: 2vh;
+  color: #060606;
+  line-height: 3vh;
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
+}
+
+
+.bar3BgBottomBarBox2{
+  width: 37vh;
+  height: 38vh;
+  /*background: url("../../public/en/矩形 175@2x.png");*/
+  background: radial-gradient( 0% 95% at -69% 38%, #343734 0%, #0F1112 100%);
+  /*border: 2px solid;*/
+  /*border-color: rgba(255, 255, 255, 0.33000001311302185);*/
+  /*border-image: linear-gradient(136deg, rgba(255, 255, 255, 0.33000001311302185), rgba(255, 255, 255, 0)) 2 2;*/
+  padding: 2vh 2vh;
+  /*border-top-left-radius: 10px;*/
+  /*border-bottom-left-radius: 10px;*/
+}
+.bar3BgBottomBarBox2on{
+  width: 37vh;
+  height: 45vh;
+  /*background: url("../../public/en/矩形 175@2x.png");*/
+  background-color: rgba(187, 255, 25, 1);
+  padding: 2vh 2vh;
+  /*border-top-left-radius: 10px;*/
+  /*border-bottom-left-radius: 10px;*/
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.bar3BgBottomBarBox3{
+  width: 37vh;
+  height: 38vh;
+  /*background: url("../../public/en/矩形 175@2x.png");*/
+  background: radial-gradient( 0% 95% at -69% 38%, #343734 0%, #0F1112 100%);
+  /*border: 2px solid;*/
+  /*border-color: rgba(255, 255, 255, 0.33000001311302185);*/
+  /*border-image: linear-gradient(136deg, rgba(255, 255, 255, 0.33000001311302185), rgba(255, 255, 255, 0)) 2 2;*/
+  padding: 2vh 2vh;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.bar3BgBottomBarBox3on{
+  width: 37vh;
+  height: 45vh;
+  /*background: url("../../public/en/矩形 175@2x.png");*/
+  background-color: rgba(187, 255, 25, 1);
+  padding: 2vh 2vh;
+  border-radius: 10px;
+  /*border-bottom-right-radius: 10px;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.bar3BgBottomBarImg1Text1{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 600;
+  font-size: 2vh;
+  color: #BBFF19;
+  line-height: 34px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.bar3BgBottomBarImg1Text2{
+  margin-top: 2vh;
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 1vh;
+  color: #9D9D9D;
+  line-height: 2vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+
+
+.bar3BgBottomBarImg2{
+  width: 400px;
+  height: 491px;
+  background: url("../../public/en/组 133452@2x.png");
+  background-size: 400px 491px;
+  border-radius: 30px;
+}
+
+
+.bar3BgBottomBarImg3{
+  width: 400px;
+  height: 420px;
+  background: url("../../public/en/矩形 175@2x.png");
+  background-size: 400px 420px;
+  border-radius: 30px;
+  padding: 24px 24px;
+}
+
+
+.bar4Bg{
+  width: 100vw;
+  background: url("../../public/en/容器 133486@2x.png");
+  background-size: cover;
+  padding-top: 21vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar4BgText1{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size: 3.7vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(90deg, #515357 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bar4BgText2{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size:  3.7vh;
+  color: #BBFF19;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+
+.bar4BgText3{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size:  3.7vh;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(90deg, #FFFFFF 0%, #515357 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bar4BgText4{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 16px;
+  color: #9D9D9D;
+  line-height: 32px;
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
+}
+
+.bar4BgBottomBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 55px;
+}
+
+.bar4BgBottomBarText{
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  font-size: 12px;
+  color: #9D9D9D;
+  line-height: 32px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.bar4BgBottomBarImg{
+  width: 652px;
+  height: 377px;
+  background: url("../../public/组 149.png");
+  background-size: cover;
+  margin-left: 2vh;
+}
+
+.bar5Bg{
+  width: 100vw;
+  height: 33.88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar5BgText1{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size: 40px;
+  color: #FFFFFF;
+  line-height: 56px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  display: flex;
+  align-items: center;
+}
+.bar5BgText2{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size: 40px;
+  color: #BBFF19;
+  line-height: 56px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+}
+.bar5BgText3{
+  font-family: PingFang TC, PingFang TC;
+  font-weight: 600;
+  font-size: 40px;
+  color: rgba(0,0,0,0.2);
+  line-height: 56px;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  background: linear-gradient(180deg, #FFFFFF 0%, #515357 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bar6Bg{
+  width: 100vw;
+  height: 35vh;
+  background: url("../../public/en/蒙版组 20@2x.png");
+  background-size: 100vw 35vh;
+  padding-left: 18.75vw;
+  padding-top: 21vh;
+  position: relative;
+}

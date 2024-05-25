@@ -1,0 +1,356 @@
+.mall{
+  background-color: #060606;
+  &main{
+    width: 100vw;
+    //height: 100vh;
+    background: url("../../../public/背景.png");
+    //background-size: 100vw 100vh;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //padding-top: 120px;
+  }
+  &Top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //background-color: #1FF688;
+    width: 1180px;
+    height: 100px;
+    margin-top: 10vh;
+    &title1{
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 600;
+      font-size: 40px;
+      color: #FFFFFF;
+      line-height: 56px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+    }
+    &detail{
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 600;
+      font-size: 20px;
+      color: #B5B5B5;
+      line-height: 28px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+    }
+    &btn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px 8px 8px 8px;
+      border: 1px solid #D9D9D9;
+      color: #FFFFFF;
+      width: 160px;
+      height: 34px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+  &Middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1180px;
+    margin-top: 60px;
+    &BoxDetailOut{
+      height: 550px;
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &BoxDetail{
+      height: 460px;
+      width: 360px;
+      background: url("../../../public/en/矩形 175.png");
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      &_img_mask{
+        width: 360px;
+        height: 320px;
+        backdrop-filter: blur(10px);
+        position: absolute;
+        border-radius: 10px;
+        top:0;
+        left:0;
+        //background-color: #BBFF19;
+      }
+      &_img{
+        width: 320px;
+        height: 320px;
+        background: url("../../../public/en/order/容器 133613@2x.png");
+        background-size: 320px 320px;
+      }
+      &_img1{
+        width: 320px;
+        height: 320px;
+        background: url("../../../public/pro/容器 1336141@2x.png");
+        background-size: 320px 320px;
+      }
+      &_img2{
+        width: 320px;
+        height: 320px;
+        background: url("../../../public/pro/容器 1336142@2x.png");
+        background-size: 320px 320px;
+      }
+      &_text1{
+        font-family: PingFang TC, PingFang TC;
+        font-weight: 500;
+        font-size: 24px;
+        color: #FFFFFF;
+        line-height: 34px;
+        text-align: center;
+        font-style: normal;
+        text-transform: none;
+        margin-top: 20px;
+      }
+    }
+    &BoxDetailBtn{
+      width: 230px;
+      height: 52px;
+      background: #BBFF19;
+      border-radius: 12px 12px 12px 12px;
+      margin-top: 20px;
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 500;
+      font-size: 20px;
+      color: #060606;
+      line-height: 28px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}
+
+.bar1Bg{
+
+}
+
+.glass {
+  width: 100vw;
+  height:100vh;
+  background: rgba(0,0,0, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.checkout{
+  width: 524px;
+  height: 290px;
+  background: #151515;
+  border-radius: 12px 12px 12px 12px;
+  padding: 24px 24px;
+  &_bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 36px;
+    &_txt1{
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 500;
+      font-size: 24px;
+      color: #FFFFFF;
+      line-height: 34px;
+      text-align: center;
+      font-style: normal;
+      text-transform: none;
+    }
+    &_txt2{
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 500;
+      font-size: 24px;
+      color: #BBFF19;
+      line-height: 34px;
+      text-align: center;
+      font-style: normal;
+      text-transform: none;
+    }
+  }
+  &_btn{
+    width: 224px;
+    height: 52px;
+    background: #BBFF19;
+    border-radius: 12px 12px 12px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: PingFang TC, PingFang TC;
+    font-weight: 500;
+    font-size: 20px;
+    color: #060606;
+    line-height: 28px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+    margin-top: 24px;
+    cursor: pointer;
+  }
+}
+
+.address{
+  width: 524px;
+  height: 488px;
+  background: #151515;
+  border-radius: 12px 12px 12px 12px;
+  padding: 24px 24px;
+  &_topBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //background: #FFFFFF;
+    margin-bottom: 35px;
+    &_txt{
+      width: 108px;
+      height: 25px;
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 500;
+      font-size: 18px;
+      color: #FFFFFF;
+      line-height: 25px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+    }
+    &_btn{
+      width: 24px;
+      height: 24px;
+      background: url("../../../public/en/order/容器@2x.png");
+      background-size: contain;
+      //background-color: #BBFF19;
+      cursor: pointer;
+    }
+
+  }
+  &_bar{
+    display: flex;
+    //align-items: center;
+    justify-content: center;
+    &_text{
+      width: 73px;
+      height: 22px;
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 400;
+      font-size: 16px;
+      color: #B5B5B5;
+      line-height: 22px;
+      text-align: right;
+      font-style: normal;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+    }
+    &_text1{
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 400;
+      font-size: 16px;
+      color: #BBFF19;
+    }
+    &_input{
+      width: 348px;
+      height: 92px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px 8px 8px 8px;
+      margin-left: 12px;
+      background-color: #D8D8D8;
+    }
+  }
+
+  &_bar1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_text {
+      width: 73px;
+      height: 22px;
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 400;
+      font-size: 16px;
+      color: #B5B5B5;
+      line-height: 22px;
+      text-align: right;
+      font-style: normal;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+    }
+
+    &_text1 {
+      font-family: PingFang TC, PingFang TC;
+      font-weight: 400;
+      font-size: 16px;
+      color: #BBFF19;
+    }
+
+    &_input1{
+      width: 348px;
+      height: 46px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px 8px 8px 8px;
+      margin-left: 12px;
+      background-color: #D8D8D8;
+    }
+  }
+
+  &_barbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 36px;
+    &_btn1{
+      width: 96px;
+      height: 34px;
+      border-radius: 8px 8px 8px 8px;
+      border: 1px solid #D9D9D9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: PingFang SC, PingFang SC;
+      font-weight: 400;
+      font-size: 16px;
+      color: #F5F7F9;
+      line-height: 22px;
+      text-align: center;
+      font-style: normal;
+      text-transform: none;
+      cursor: pointer;
+    }
+    &_btn2{
+      width: 96px;
+      height: 34px;
+      background: #BBFF19;
+      border-radius: 8px 8px 8px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: PingFang SC, PingFang SC;
+      font-weight: 400;
+      font-size: 16px;
+      color: #060606;
+      line-height: 22px;
+      text-align: center;
+      font-style: normal;
+      text-transform: none;
+      margin-left: 36px;
+      cursor: pointer;
+    }
+  }
+}

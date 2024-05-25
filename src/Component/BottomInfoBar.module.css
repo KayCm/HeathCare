@@ -1,0 +1,72 @@
+.bottomBar{
+    width: 100vw;
+    background-color: #0B0B0B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1vh;
+}
+.InfoBar{
+    width: 100vw;
+    height: 33vh;
+    background-color: #0B0B0B;
+    display: flex;
+    padding: 0 18.75vw;
+    justify-content: space-between;
+    padding-top: 5vh;
+}
+
+
+.InfoBarBox1{
+    /*background-color: brown;*/
+    height: 20vh;
+}
+
+.InfoBarBox1Logo{
+    width: 6.145vw;
+    height: 2.22vh;
+    background: url("../../public/容器 133443.png");
+    background-size: 6.145vw 2.22vh;
+    /*background-color: #F5F7F9;*/
+}
+
+.InfoBarBox1LogoBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #1FF688;*/
+    width: 6.145vw;
+    height: 2.22vh;
+    gap: 1vh;
+    margin-top: 1vh;
+}
+
+.InfoBarBox2{
+
+}
+
+.InfoBarBox2Title{
+    font-family: PingFang TC, PingFang TC;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 28px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    cursor: pointer;
+    margin-bottom: 0.5vh;
+}
+
+.InfoBarBox2Detail{
+    font-family: PingFang TC, PingFang TC;
+    font-weight: 400;
+    font-size: 14px;
+    color: #858585;
+    line-height: 28px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    cursor: pointer;
+    margin-top: 0.5vh;
+}
