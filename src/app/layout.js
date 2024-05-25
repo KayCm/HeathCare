@@ -7,8 +7,8 @@ import {ReduxProvider} from "@/redux/provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Health Care",
-  description: "Health Care",
+  title: "JoinCare",
+  description: "JoinCare",
 };
 
 

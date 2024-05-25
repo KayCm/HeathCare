@@ -56,7 +56,7 @@ function BottomInfoBar() {
 
     </div>
 
-        <p style={{color:'rgba(255, 255, 255, 0.30)'}}>Health Care</p>
+        <p style={{color:'rgba(255, 255, 255, 0.30)'}}>JoinCare</p>
     </div>)
 }
 

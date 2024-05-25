@@ -65,7 +65,7 @@ function TopNavBar() {
             setSelect(1)
             router.push('/Mall')
         }}  className={styles.menuHeathMall} style={{color:select == 1?'#1FF688':'#B5B5B5'}}>
-            Health Care Mall
+            JoinCare Mall
             <div className={pathArr[1]== 'Mall' ?styles.menuSelect:styles.menuNoSelect}/>
         </div>
         <div onClick={()=>{
@@ -83,14 +83,28 @@ function TopNavBar() {
             <div className={pathArr[1]== 'AboutUS' ?styles.menuSelect:styles.menuNoSelect}/>
         </div>
 
-        <div onClick={()=>{
+        <div>
+            <div onClick={()=>{
 
-            selectRefs.current?.show()
+                if (authtReducer.walletType){
+                    setShow(!show)
+                }else{
+                    selectRefs.current?.show()
+                }
 
-        }} className={styles.menuLink}>{authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4):'Link wallet'}</div>
+            }} className={styles.menuLink}>{authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4)+' '+authtReducer.walletType:'Link wallet'}</div>
 
-        <div>{authtReducer.walletType}</div>
+            {show&&(<div className={styles.menuLinkBox} >
+                <div onClick={()=>{
+                    setShow(false)
+                }} className={styles.menuLinkBoxSinge}>{fixAddressWithNum(authtReducer.walletAddress,4)+' '+authtReducer.walletType}</div>
+                <div onClick={()=>{
+                    setShow(false)
+                    selectRefs.current?.show()
+                }} className={styles.menuLinkBoxSinge}>Switch wallet</div>
+            </div>)}
 
+        </div>
         {contextHolder}
 
         <AlertConnectSelect refs={selectRefs} successBlock={(res)=>{

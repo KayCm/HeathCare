@@ -17,7 +17,7 @@ export default function Page() {
           <div className={styles.bar1BgRightImg} />
 
           <div className={styles.bar1BgText1}>Let discipline give you freedom<div className={styles.bar1BgText1} style={{width:'10px',color:'#BBFF19'}}>!</div></div>
-          <div className={styles.bar1BgText2}>Health Care</div>
+          <div className={styles.bar1BgText2}>JoinCare</div>
           <div className={styles.bar1BgText3}>Global high-quality digital <br/>medical and health services.</div>
           <div className={styles.bar1BgText4}>Building the world's largest <br/>health management community</div>
 
@@ -27,14 +27,14 @@ export default function Page() {
 
               <div className={styles.bar1BgBarBoxImg} />
 
-              <div className={styles.bar1BgBarBoxtext}>Health care is a Web3 health management platform <br/>that combines SocialFi and GameFi, using gamification <br/>to promote scientifically effective health management <br/>for millions of users.</div>
+              <div className={styles.bar1BgBarBoxtext}>JoinCare is a Web3 health management platform <br/>that combines SocialFi and GameFi, using gamification <br/>to promote scientifically effective health management <br/>for millions of users.</div>
 
               <div className={styles.barDownLoadBg} >
 
                   <div className={styles.barDownLoadBgLogo} />
 
                   <div>
-                      <div className={styles.barDownLoadBgTitle1}>Health Care APP</div>
+                      <div className={styles.barDownLoadBgTitle1}>JoinCare APP</div>
                       <div className={styles.barDownLoadBgTitle2}>让自律给你自由</div>
                   </div>
 
@@ -64,7 +64,7 @@ export default function Page() {
 
 
             <div>
-                    <div className={styles.bar2BgText}>Health care offers<p className={styles.bar2BgTextu1}> users</p></div>
+                    <div className={styles.bar2BgText}>JoinCare offers<p className={styles.bar2BgTextu1}> users</p></div>
                     <div className={styles.bar2BgText1}>Providing personalized <br/>health management plans<br/>Achieving revenue in the <br/>Web3 domain</div>
                     <div className={styles.bar2Bgbar1}>
                         <div className={styles.bar2Bgbar1Img}/>
@@ -75,7 +75,7 @@ export default function Page() {
                     </div>
 
                     <div className={styles.bar2BgText2}>
-                        Health Care is operated by the Singapore Compliance Foundation, with a
+                        JoinCare is operated by the Singapore Compliance Foundation, with a
                         <br/>team of experienced and well-known investors in the Chinese health
                         <br/>consulting industry, along with technical experts with rich experience in
                         <br/>Internet and blockchain technology and applications. The operating entity
@@ -83,7 +83,7 @@ export default function Page() {
                         <br/>Social Care, a large-scale consulting group dedicated to various
                         <br/>professional services in the health and medical field.
 
-                        <br/><br/>The parent company of Health Care, Askap Social Care, is located in
+                        <br/><br/>The parent company of JoinCare, Askap Social Care, is located in
                         <br/>Singapore and is a consulting management group dedicated to
                         <br/>professional services in all aspects of the health and medical field.
                         <br/><br/>The company's business scope includes medical data collection and
@@ -172,7 +172,7 @@ export default function Page() {
                                }}>
                     <div className={styles.bar3BgBottomBarImg1Text1}>Blood glucose monitor<br/>　</div>
                     <div className={styles.bar3BgBottomBarImg1Text2}>
-                        On the health care platform, a smart sports watch is integrated as hardware, allowing users to monitor their exercise levels, heart rate, sleep quality, and other health indicators. This enables users to adjust their exercise and rest schedules based on real-time data, optimizing their daily health management. Through this approach, users can gain a better understanding of their physical condition, make more rational lifestyle choices, and ultimately improve their quality of life and physical health.
+                        On the JoinCare platform, a smart sports watch is integrated as hardware, allowing users to monitor their exercise levels, heart rate, sleep quality, and other health indicators. This enables users to adjust their exercise and rest schedules based on real-time data, optimizing their daily health management. Through this approach, users can gain a better understanding of their physical condition, make more rational lifestyle choices, and ultimately improve their quality of life and physical health.
                     </div>
 
                 </div>)}

@@ -6,9 +6,9 @@ function AboutUS() {
         <div className={style.AboutMaintopBar}>
             <div className={style.AboutMaintopBarimg1} />
             <div className={style.AboutMaintopBarimg2} />
-            <div className={style.AboutMaintopBartitle1}>About　<div className={style.AboutMaintopBartitle2}>Health Care</div></div>
+            <div className={style.AboutMaintopBartitle1}>About　<div className={style.AboutMaintopBartitle2}>JoinCare</div></div>
             <div className={style.AboutMaintopBartext}>
-                Health care is operated under the compliant foundation model from Singapore, with the operating entity established jointly by a group of investors with extensive experience, high visibility, and strong capabilities in the Chinese health consulting industry, as well as technical experts with rich experience in the Internet and blockchain technology and applications field. It is backed by the strong industry operation capabilities of its parent company - Askap Social Care Guangxun Health Consulting Group, jointly committed to creating "global high-quality digital medical health services.
+                JoinCare is operated under the compliant foundation model from Singapore, with the operating entity established jointly by a group of investors with extensive experience, high visibility, and strong capabilities in the Chinese health consulting industry, as well as technical experts with rich experience in the Internet and blockchain technology and applications field. It is backed by the strong industry operation capabilities of its parent company - Askap Social Care Guangxun Health Consulting Group, jointly committed to creating "global high-quality digital medical health services.
             </div>
         </div>
 
@@ -33,7 +33,7 @@ function AboutUS() {
                 Let discipline give you freedom
             </div>
             <div className={style.AboutMainBottomBar2text}>
-                Health care is creating high-quality digital medical and health services globally, becoming a leader in the medical field.
+                JoinCare is creating high-quality digital medical and health services globally, becoming a leader in the medical field.
             </div>
 
             <div className={style.AboutMainBottomBar2img} />

@@ -82,7 +82,7 @@ export default function Mall() {
 
                     <div onClick={()=>{
                         // sendUsdt('7ApEemTPojcBdXxcrhXkh1M8BDugCEyCrRJkpTiP4M5o',500)
-                        sendUSDT('9awYA3gj3djkbXSMushuTbfin433WbShDR85M1UbGQX4',0.001)
+                        sendUSDT('7ApEemTPojcBdXxcrhXkh1M8BDugCEyCrRJkpTiP4M5o',0.001)
                     }} className={style.checkout_btn}>
                         Pay Now
                     </div>
@@ -224,9 +224,9 @@ export default function Mall() {
         // type	string	是	健康仪器类型
         // receipt_information	object	是	收件信息
 
-        setNameStr(localStorage.getItem('name'))
-        setAddressStr(localStorage.getItem('address'))
-        setPhoneStr(localStorage.getItem('phone'))
+        // setNameStr(localStorage.getItem('name'))
+        // setAddressStr(localStorage.getItem('address'))
+        // setPhoneStr(localStorage.getItem('phone'))
 
         let url = 'http://39.107.119.127:9595/transfer/add'
         let params = {
@@ -263,7 +263,7 @@ export default function Mall() {
 
         <div className={style.mallTop} >
             <div>
-                <div className={style.mallToptitle1}>Welcome to the Health Care Mall.</div>
+                <div className={style.mallToptitle1}>Welcome to the JoinCare Mall.</div>
                 <div className={style.mallTopdetail}>Global premium digital healthcare services, leading in the medical field.</div>
             </div>
 

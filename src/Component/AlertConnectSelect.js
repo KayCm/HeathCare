@@ -74,6 +74,12 @@ function AlertConnectSelect({refs,successBlock}) {
                    onRequestClose={() => setShow(false)}>
         <div className={styles.modalBg}>
 
+            <div className={styles.modalBgBar}>
+                <div>Choose the wallet you want to use</div>
+                <div className={styles.modalBgBarClosebtn} onClick={()=>{
+                    setShow(false)
+                }} />
+            </div>
 
             <div onClick={()=>{
 
@@ -81,7 +87,7 @@ function AlertConnectSelect({refs,successBlock}) {
                 Connecting()
 
             }} className={styles.modalBgBarBtn}>
-                Okx
+                Okx wallet
             </div>
 
 
@@ -92,7 +98,7 @@ function AlertConnectSelect({refs,successBlock}) {
                 Connecting()
 
             }} className={styles.modalBgBarBtn}>
-                OneKey
+                Onekey wallet
             </div>
 
         </div>

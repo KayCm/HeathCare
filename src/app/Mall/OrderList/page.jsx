@@ -51,7 +51,7 @@ export default function OrderList() {
 
             <Breadcrumb items={[
                     {
-                        title: <a href="/Mall">Health Care Mall</a>,
+                        title: <a href="/Mall">JoinCare Mall</a>,
                     },
                     {
                         title: <a href="/Mall/OrderList">View Orders</a>,
