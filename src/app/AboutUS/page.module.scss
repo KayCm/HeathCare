@@ -51,11 +51,12 @@
             font-family: PingFang TC, PingFang TC;
             font-weight: 600;
             font-size: 40px;
-            color: #BBFF19;
+            color: #1FF688;
             line-height: 56px;
             text-align: left;
             font-style: normal;
             text-transform: none;
+            margin-left: 20px;
         }
         &text{
             margin-top: 4vh;
@@ -184,13 +185,13 @@
             &img2{
                 width: 11.11vh;
                 height: 11.11vh;
-                background: url("../../../public/en/about/容器(1).png");
+                background: url("../../../public/en/about/容器 (1).png");
                 background-size: 11.11vh 11.11vh;
             }
             &img3{
                 width: 11.11vh;
                 height: 11.11vh;
-                background: url("../../../public/en/about/容器(2).png");
+                background: url("../../../public/en/about/容器 (2).png");
                 background-size: 11.11vh 11.11vh;
             }
             &box{
@@ -274,7 +275,7 @@
                 font-family: PingFang TC, PingFang TC;
                 font-weight: 600;
                 font-size: 40px;
-                color: #BBFF19;
+                color: #1FF688;
                 //line-height: 56px;
                 text-align: left;
                 font-style: normal;
@@ -288,7 +289,7 @@
                 font-weight: 400;
                 font-size: 12px;
                 color: #F5F7F9;
-                //line-height: 32px;
+                line-height: 28px;
                 text-align: justify;
                 //font-style: normal;
                 //text-transform: none;
@@ -356,12 +357,13 @@
                 }
                 &text1{
                     width: 300px;
-                    text-align: center;
-                    margin-top: 3vh;
+                    //text-align: center;
+                    margin-top: 2vh;
                     font-family: PingFang SC, PingFang SC;
                     font-weight: 400;
-                    font-size: 16px;
-                    color: #9D9D9D;
+                    font-size: 14px;
+                    color: #F5F7F9;
+                    line-height: 24px;
                     font-style: normal;
                     text-transform: none;
                 }
@@ -369,19 +371,19 @@
         }
         &BottomBar2{
             width: 100vw;
-            height: 100vh;
+            height: 110vh;
             display: flex;
             flex-direction: column;
             //justify-content: center;
             align-items: center;
-            //background-color: #060606;
+            //background-color: #FFFFFF;
             &title{
-                margin-top: 4vh;
+                margin-top: 5vh;
                 font-family: PingFang TC, PingFang TC;
                 font-weight: 600;
                 font-size: 40px;
                 color: #FFFFFF;
-                line-height: 56px;
+                line-height: 50px;
                 text-align: center;
                 font-style: normal;
                 text-transform: none;
@@ -419,13 +421,13 @@
                 &img2{
                     width: 11.11vh;
                     height: 11.11vh;
-                    background: url("../../../public/en/about/容器(1).png");
+                    background: url("../../../public/en/about/容器 (1).png");
                     background-size: 11.11vh 11.11vh;
                 }
                 &img3{
                     width: 11.11vh;
                     height: 11.11vh;
-                    background: url("../../../public/en/about/容器(2).png");
+                    background: url("../../../public/en/about/容器 (2).png");
                     background-size: 11.11vh 11.11vh;
                 }
                 &box{

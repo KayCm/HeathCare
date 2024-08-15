@@ -207,7 +207,9 @@ function TopNavBar() {
     }
 
     return(<div className={styles.NavBar}>
-        <div className={styles.logo}/>
+        <div className={styles.logo} onClick={()=>{
+            router.push('/')
+        }}/>
         <div onClick={()=>{
             setSelect(0)
             router.push('/')
@@ -237,16 +239,18 @@ function TopNavBar() {
             <div className={pathArr[1]== 'AboutUS' ?styles.menuSelect:styles.menuNoSelect}/>
         </div>
 
-        <div onClick={()=>{
+        <div onMouseEnter={()=>{
+            setWhitePaperShow(!WhitePaperShow)
+        }} onMouseLeave={()=>{
             setWhitePaperShow(!WhitePaperShow)
         }}  className={styles.menuAboutUS} style={{color:'#B5B5B5'}}>
             WhitePaper
             {/*<div className={pathArr[1]== 'AboutUS' ?styles.menuSelect:styles.menuNoSelect}/>*/}
 
             {WhitePaperShow&&(<div className={styles.wpSelectBox}>
-                <a target="_blank" href="/wp_en.pdf">English</a>
-                <a target="_blank" href="/wp_cn.pdf">Chinese</a>
-                <a target="_blank" href="/wp_kor.pdf">Korean</a>
+                <a className={styles.wpText} target="_blank" href="/wp_en.pdf">English</a>
+                <a className={styles.wpText} target="_blank" href="/wp_cn.pdf">Chinese</a>
+                <a className={styles.wpText} target="_blank" href="/wp_kor.pdf">Korean</a>
             </div>)}
 
         </div>
@@ -278,22 +282,27 @@ function TopNavBar() {
 
 
 
-        <div>
-            <div onClick={ async () => {
+        <div onMouseEnter={() => {
 
-                if (authtReducer.walletType){
-                    setShow(!show)
-                }else{
-                    // selectRefs.current?.show()
-                    setBlockSelectShow(!blockSelectShow)
-                }
+            if (authtReducer.walletType){
+                setShow(true)
+            }else{
+                // selectRefs.current?.show()
+                setBlockSelectShow(true)
+            }
 
+        }}
+             onMouseLeave={() => {
 
-                return
+                 if (authtReducer.walletType){
+                     setShow(false)
+                 }else{
+                     // selectRefs.current?.show()
+                     setBlockSelectShow(false)
+                 }
 
-
-
-            }} className={styles.menuLink}>{authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4):'Link wallet'}</div>
+             }}>
+            <div className={styles.menuLink}>{authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4):'Link wallet'}</div>
 
             {show&&(<div className={styles.menuLinkBox} >
                 <div onClick={()=>{

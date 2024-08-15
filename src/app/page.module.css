@@ -49,8 +49,8 @@
   font-family: PingFang SC, PingFang SC;
   font-weight: 600;
   font-size: 4.07vh;
-  color: #BBFF19;
-  line-height: 62px;
+  color: #2DFAA5;
+  line-height: 5vh;
   text-align: left;
   font-style: normal;
   text-transform: none;
@@ -61,7 +61,7 @@
   font-family: PingFang SC, PingFang SC;
   font-weight: 600;
   font-size: 4.07vh;
-  line-height: 6vh;
+  line-height: 5vh;
   text-align: left;
   font-style: normal;
   text-transform: none;
@@ -198,7 +198,7 @@
 
   width: 68.51vh;
   height: 59.25vh;
-  background: url("../../public/en/容器 133446@2x.png");
+  background: url("../../public/en/容器 133446.png");
   background-size: 68.51vh 59.25vh;
 
 }
@@ -224,7 +224,7 @@
   font-size: 3.7vh;
   text-align: left;
   font-style: normal;
-  color: #BBFF19;
+  color: #2DFAA5;
 }
 
 .bar2BgText1{
@@ -257,7 +257,7 @@
   width: 187px;
   height: 40px;
   margin-top: 4vh;
-  background: #BBFF19;
+  background: #2DFAA5;
   border-radius: 12px 12px 12px 12px;
   display: flex;
   justify-content: center;
@@ -321,7 +321,7 @@
   font-family: PingFang TC, PingFang TC;
   font-weight: 600;
   font-size:  3.7vh;
-  color: #BBFF19;
+  color: #2DFAA5;
   text-align: left;
   font-style: normal;
   text-transform: none;
@@ -394,13 +394,13 @@
 .bar3BgBottomBarBox1on{
   width: 37vh;
   height: 45vh;
-  /*background: url("../../public/en/矩形 175@2x.png");*/
   background-color: rgba(187, 255, 25, 1);
   padding: 2vh 2vh;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: url("../../public/组 133452.png");
 }
 
 .bar3BgBottomBarBox1onImg1{
@@ -452,7 +452,7 @@
   width: 37vh;
   height: 45vh;
   /*background: url("../../public/en/矩形 175@2x.png");*/
-  background-color: rgba(187, 255, 25, 1);
+  /*background-color: rgba(187, 255, 25, 1);*/
   padding: 2vh 2vh;
   /*border-top-left-radius: 10px;*/
   /*border-bottom-left-radius: 10px;*/
@@ -460,6 +460,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: url("../../public/组 133452.png");
 }
 
 
@@ -480,13 +481,14 @@
   width: 37vh;
   height: 45vh;
   /*background: url("../../public/en/矩形 175@2x.png");*/
-  background-color: rgba(187, 255, 25, 1);
+  /*background-color: rgba(187, 255, 25, 1);*/
   padding: 2vh 2vh;
   border-radius: 10px;
   /*border-bottom-right-radius: 10px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: url("../../public/组 133452.png");
 }
 
 
@@ -495,7 +497,7 @@
   font-family: PingFang SC, PingFang SC;
   font-weight: 600;
   font-size: 2vh;
-  color: #BBFF19;
+  color: #2DFAA5;
   line-height: 34px;
   text-align: left;
   font-style: normal;
@@ -561,7 +563,7 @@
   font-family: PingFang TC, PingFang TC;
   font-weight: 600;
   font-size:  3.7vh;
-  color: #BBFF19;
+  color: #2DFAA5;
   text-align: left;
   font-style: normal;
   text-transform: none;
@@ -639,7 +641,7 @@
   font-family: PingFang TC, PingFang TC;
   font-weight: 600;
   font-size: 40px;
-  color: #BBFF19;
+  color: #2DFAA5;
   line-height: 56px;
   text-align: left;
   font-style: normal;
@@ -669,16 +671,21 @@
   position: relative;
 }
 
+.bar1BgMobile,.bar2BgMobile,.bar3BgMobile,.bar4BgMobile,.bar5BgMobile{
+  display: none;
+}
+
 @media  (min-width: 300px) and (max-width: 1025px)  {
   .bar1Bg {
     width: 100vw;
-    height: 480px;
+    height: 80vh;
     padding: 0;
     background-position: center;
+    /*background-color: #1FF688;*/
   }
   .bar1BgRightImg{
     width: 343px;
-    height: 316px;
+    height: 80vh;
     background: url("../../public/主体.png") no-repeat;
     background-size: contain;
     top: 210px;
@@ -686,11 +693,13 @@
     transform: translate(-50%);
   }
   .bar1BgText1 {
-    width: 343px;
+    width: 303px;
     font-size: 14px;
     position: absolute;
     top: 57px;
     left: 50%;
+    color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
     transform: translate(-50%);
     line-height: 20px;
     text-align: left;
@@ -700,7 +709,7 @@
     flex-wrap: nowrap;
   }
   .bar1BgText2 {
-    width: 343px;
+    width: 345px;
     font-size: 24px;
     line-height: 24px;
     position: absolute;
@@ -709,16 +718,17 @@
     transform: translate(-50%);
   }
   .bar1BgText3{
-    width: 343px;
+    width: 345px;
     font-size: 16px;
     line-height: 24px;
     position: absolute;
     top: 120px;
     left: 50%;
+    /*background-color: #FFFFFF;*/
     transform: translate(-50%);
   }
   .bar1BgText4 {
-    width: 343px;
+    width: 345px;
     font-size: 16px;
     line-height: 24px;
     position: absolute;
@@ -749,7 +759,7 @@
   .bar2BgTextu11 {
     display: inline;
     margin-left: 5px;
-    color: #BBFF19;
+    color: #2DFAA5;
   }
   .bar2BgText1 {
     width: 343px;
@@ -822,4 +832,277 @@
     background-size: contain;
     margin: 28px auto 37px;
   }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 6rem;*/
+    /*min-height: 100vh;*/
+    /*background-color: #0AB2E9;*/
+  }
+  .bar1Bg {
+    display: none;
+  }
+  .bar2Bg{
+    display: none;
+  }
+  .bar3Bg{
+    display: none;
+  }
+  .bar4Bg{
+    display: none;
+  }
+  .bar5Bg{
+    display: none;
+  }
+  .bar6Bg{
+    display: none;
+  }
+
+  .bar1BgMobile{
+    display: inline;
+    height: 535px;
+    width: 100vw;
+    background: url("../../public/mobile/背景.png") no-repeat;
+    background-size: 100vw;
+    /*background-color: #0AB2E9;*/
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 58px;
+  }
+
+  .bar1BgMobile .Title1{
+    width: 300px;
+    height: 30px;
+    color: #FFFFFF;
+    display: flex;
+  }
+
+  .bar1BgMobile .Title2{
+    color: #FFFFFF;
+    font-family: PangMenZhengDao, PangMenZhengDao;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: normal;
+    text-transform: none;
+    color: #FFFFFF;
+    background: linear-gradient(180deg, #FFFFFF 0%, #515357 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .bar1BgMobile .Title3{
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2DFAA5;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+  }
+  .bar1BgMobile .Title4{
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+
+  .bar2BgMobile{
+    display: inline;
+    height: 560px;
+    width: 100vw;
+    background: url("../../public/mobile/容器 133445 (1).png") no-repeat;
+    background-size: 100vw;
+    /*background-color: #BBFF19;*/
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+  }
+
+  .bar2BgMobile .Title1{
+    /*width: 100vw;*/
+    background-color: #FFFFFF;
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /*text-align: right;*/
+    font-style: normal;
+    text-transform: none;
+    background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
+
+
+  }
+
+  .bar2BgMobile .Title2{
+    font-size: 16px;
+    color: #2DFAA5;
+    background: #2DFAA5;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 10px;
+  }
+
+  .bar2BgMobile .Title3{
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: right;
+    font-style: normal;
+    text-transform: none;
+    background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /*margin-top: 1vh;*/
+    display: flex;
+    justify-content: flex-end;
+  }
+  .bar2BgMobile .img1{
+    width: 343px;
+    height: 386px;
+    background: url("../../public/mobile/组 134538.png") no-repeat;
+    margin-top: 10px;
+  }
+
+  .bar2BgMobile .btn{
+    width: 125px;
+    height: 36px;
+    border-radius: 10px;
+    background-color:#2DFAA5;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#000000;
+    font-size: 12px;
+  }
+
+  .bar2BgMobile .btn .img{
+    width: 16px;
+    height: 16px;
+    background: url("../../public/en/容器.png") no-repeat;
+    background-size:contain;
+    margin-left: 5px;
+  }
+
+  .bar3BgMobile{
+    display: inline;
+    width: 100vw;
+    /*background-color: #BBFF19;*/
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 24px;
+  }
+
+  .bar3BgMobile .Title1{
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+  }
+
+  .bar3BgMobile .Title2{
+    color: #2DFAA5;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .bar3BgMobile .Title3{
+    font-size: 16px;
+    text-align: right;
+    font-style: normal;
+    text-transform: none;
+    background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 10px;
+  }
+
+  .bar3BgMobile .Title4{
+    font-size: 16px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bar3BgMobile .img1{
+    width: 343px;
+    height: 481px;
+    background: url("../../public/mobile/组 134539@2x.png") no-repeat;
+    background-size: contain;
+    margin-top: 24px;
+  }
+
+  .bar4BgMobile{
+    display: inline;
+    width: 100vw;
+    /*background-color: #BBFF19;*/
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 24px;
+  }
+
+  .bar4BgMobile .Title1{
+    font-size: 16px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+    background: linear-gradient(180deg, #515357 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 10px;
+  }
+
+  .bar4BgMobile .Title2{
+    color: #2DFAA5;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10px;
+  }
+
+  .bar4BgMobile .Img{
+    height: 203px;
+    width: 345px;
+    background: url("../../public/mobile/组 149@2x.png") no-repeat;
+    background-size: contain;
+    margin-top: 24px;
+  }
+
+  .bar5BgMobile{
+    display: inline;
+    width: 100vw;
+  }
+
+  .bar5BgMobile .Img1{
+    height: 220px;
+    width: 375px;
+    background: url("../../public/mobile/组 134540@2x.png");
+    background-size: contain;
+    margin-top: 24px;
+  }
+
 }

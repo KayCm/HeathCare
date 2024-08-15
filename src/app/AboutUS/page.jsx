@@ -62,13 +62,13 @@ function AboutUS() {
                 <div className={style.AboutMainBottomBar2BarBoxbox}>
                     <div className={style.AboutMainBottomBar2BarBoximg2}/>
                     <div className={style.AboutMainBottomBar2BarBoxtext1}>Media cooperation</div>
-                    <div className={style.AboutMainBottomBar2BarBoxtext2}>https://twitter.com/health_care2020</div>
+                    <div className={style.AboutMainBottomBar2BarBoxtext2}>https://x.com/JoinCare_Server</div>
                 </div>
 
                 <div className={style.AboutMainBottomBar2BarBoxbox}>
                     <div className={style.AboutMainBottomBar2BarBoximg3}/>
                     <div className={style.AboutMainBottomBar2BarBoxtext1}>Operational support</div>
-                    <div className={style.AboutMainBottomBar2BarBoxtext2}>https://t.me/health_care2020</div>
+                    <div className={style.AboutMainBottomBar2BarBoxtext2}>https://x.com/JoinCare_Server</div>
                 </div>
 
 

@@ -16,7 +16,7 @@ export default function Page() {
 
           <div className={styles.bar1BgRightImg} />
 
-          <div className={styles.bar1BgText1}>Präzise Pflege mit großer Liebe<div className={styles.bar1BgText1} style={{width:'10px',color:'#BBFF19'}}>!</div></div>
+          <div className={styles.bar1BgText1}>Präzise Pflege mit großer Liebe<div style={{width:'10px',color:'#2DFAA5'}}>!</div></div>
           <div className={styles.bar1BgText2}>JoinCare</div>
           <div className={styles.bar1BgText3}>Global high-quality digital <br/>medical and health services.</div>
           <div className={styles.bar1BgText4}>Building the world's largest <br/>health management community</div>
@@ -152,10 +152,6 @@ export default function Page() {
 
 
 
-
-
-
-
                 {bar3moveIn2 && (<div  onMouseLeave={()=>{
                                            setBar3moveIn2(false)
                                        }} className={styles.bar3BgBottomBarBox2on}>
@@ -253,8 +249,45 @@ export default function Page() {
 
         </div>
 
-        <div className={styles.bar6Bg} >
+        <div className={styles.bar6Bg} ></div>
 
+        <div className={styles.bar1BgMobile} >
+            <div className={styles.Title1}>Präzise Pflege mit großer Liebe<div style={{color:'#2DFAA5'}}>!</div></div>
+            <div className={styles.Title2}>JoinCare</div>
+            <div className={styles.Title3}>Global high-quality digital medical and <br/>health services.</div>
+            <div className={styles.Title4}>Building the world's largest health management community</div>
+        </div>
+
+        <div className={styles.bar2BgMobile} >
+            <div className={styles.Title1}>Joincare offers <div className={styles.Title2}>users</div></div>
+            <div className={styles.Title3}>Providing personalized <br/>health management plans<br/>Achieving revenue in the Web3 domain</div>
+            <div className={styles.img1} />
+            <div className={styles.btn}>
+                Learn More
+                <div className={styles.img}/>
+            </div>
+        </div>
+
+        <div className={styles.bar3BgMobile}>
+            <div className={styles.Title1}>Artificial
+                <div className={styles.Title2}>intelligence</div>
+                <div className={styles.Title3}>monitoring devices</div>
+            </div>
+
+            <div className={styles.Title4}>Promoting hundreds of millions of users to engage in scientifically effective health management.</div>
+
+            <div className={styles.img1} />
+        </div>
+
+        <div className={styles.bar4BgMobile}>
+            <div className={styles.Title1}>Utilizing artificial intelligence technology</div>
+            <div className={styles.Title2}>blockchain + AI</div>
+            <div className={styles.Title1}>applied to medical diagnosis</div>
+            <div className={styles.Img}/>
+        </div>
+
+        <div className={styles.bar5BgMobile}>
+            <div className={styles.Img1}/>
         </div>
 
     </div>);

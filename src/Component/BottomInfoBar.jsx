@@ -3,8 +3,9 @@ import styles from './BottomInfoBar.module.css'
 import {DiscordOutlined, SendOutlined, XOutlined, YoutubeOutlined} from '@ant-design/icons';
 
 function BottomInfoBar() {
-    return(<div className={styles.bottomBar}>
+    return(<div>
 
+    <div className={styles.bottomBar}>
         <div className={styles.InfoBar}>
 
         <div className={styles.InfoBarBox1}>
@@ -54,9 +55,16 @@ function BottomInfoBar() {
             <p className={styles.InfoBarBox2Detail}>Risk Disclaimer</p>
         </div>
 
+        </div>
+        <p style={{color:'rgba(255, 255, 255, 0.30)'}}>©️ 2024 Joincare Foundation All Rights Reserved</p>
     </div>
 
-        <p style={{color:'rgba(255, 255, 255, 0.30)'}}>©️ 2024 Joincare Foundation All Rights Reserved</p>
+    <div className={styles.bottomBarMobile} >
+
+        <p style={{color:'#fff'}}>©️ 2024 Joincare Foundation All Rights Reserved</p>
+
+    </div>
+
     </div>)
 }
 
