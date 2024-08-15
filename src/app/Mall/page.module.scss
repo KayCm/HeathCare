@@ -40,6 +40,9 @@
       font-style: normal;
       text-transform: none;
     }
+    &box{
+
+    }
     &btn{
       display: flex;
       justify-content: center;
@@ -270,6 +273,7 @@
       border-radius: 8px 8px 8px 8px;
       margin-left: 12px;
       background-color: #D8D8D8;
+      color: #0b0b0b;
     }
   }
 
@@ -307,6 +311,7 @@
       border-radius: 8px 8px 8px 8px;
       margin-left: 12px;
       background-color: #D8D8D8;
+      color: #0b0b0b;
     }
   }
 
@@ -352,5 +357,79 @@
       margin-left: 36px;
       cursor: pointer;
     }
+  }
+}
+
+@media  (min-width: 300px) and (max-width: 1025px) {
+  .mallTop {
+    width: 343px;
+    margin: 0 auto;
+    display: block;
+  }
+  .mallToptitle1 {
+    font-size: 16px;
+  }
+  .mallTopdetail {
+    font-size: 12px;
+  }
+  .mallTopbox{
+    display: none;
+  }
+  .mallTopbtn {
+    margin: 16px 20px 25px 0;
+    display: none;
+  }
+  .mallMiddle {
+    width: 343px;
+    margin: 100px auto ;
+    display: block;
+  }
+  .mallMiddleBoxDetailOut {
+    width: 343px;
+    height: 161px;
+    display: flex;
+    background-size: contain;
+    margin: 0 0 16px 0;
+    position: relative;
+  }
+  .mallMiddleBoxDetail {
+    width: 343px;
+    height: 161px;
+    display: flex;
+    flex-direction: row;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: linear-gradient(90deg, #343734 0%, #0F1112 100%);
+    border-radius: 16px;
+    border: 2px solid rgba(255,255,255,0.5);
+    margin: 0 0 16px 0;
+  }
+  .mallMiddleBoxDetail_img, .mallMiddleBoxDetail_img1, .mallMiddleBoxDetail_img2 {
+    width: 160px;
+    height: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .mallMiddleBoxDetail_text1 {
+    font-size: 14px;
+    width: 147px;
+    text-align: left;
+    margin-top: 0;
+  }
+  .mallMiddleBoxDetailBtn {
+    width: 81px;
+    height: 28px;
+    background: linear-gradient(90deg, #BBFF19 100%, #1FF688 100%);
+    border-radius: 12px 12px 12px 12px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #060606;
+    line-height: 28px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: none;
   }
 }

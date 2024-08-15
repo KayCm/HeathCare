@@ -1,4 +1,5 @@
 'use client'
+import React from "react";
 import style from './page.module.scss'
 
 function Business() {
@@ -19,4 +20,4 @@ function Business() {
 }
 
 
-export default Business;
+export default React.memo(Business);

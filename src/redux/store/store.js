@@ -7,7 +7,7 @@ import authReducer from '../features/auth'
 const persistConfig = {
   key:'root',
   storage,
-  blacklist:['authReducer']
+  // blacklist:['authReducer']
 };
 
 const rootReducer = combineReducers({authReducer});

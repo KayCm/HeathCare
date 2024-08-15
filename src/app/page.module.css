@@ -668,3 +668,158 @@
   padding-top: 21vh;
   position: relative;
 }
+
+@media  (min-width: 300px) and (max-width: 1025px)  {
+  .bar1Bg {
+    width: 100vw;
+    height: 480px;
+    padding: 0;
+    background-position: center;
+  }
+  .bar1BgRightImg{
+    width: 343px;
+    height: 316px;
+    background: url("../../public/主体.png") no-repeat;
+    background-size: contain;
+    top: 210px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .bar1BgText1 {
+    width: 343px;
+    font-size: 14px;
+    position: absolute;
+    top: 57px;
+    left: 50%;
+    transform: translate(-50%);
+    line-height: 20px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .bar1BgText2 {
+    width: 343px;
+    font-size: 24px;
+    line-height: 24px;
+    position: absolute;
+    top: 81px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .bar1BgText3{
+    width: 343px;
+    font-size: 16px;
+    line-height: 24px;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .bar1BgText4 {
+    width: 343px;
+    font-size: 16px;
+    line-height: 24px;
+    position: absolute;
+    top: 164px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .bar1BgBarBox, .bar2BgText2, .bar2Bgbar1, .bar2BgLeft {
+    display: none;
+  }
+  .bar2Bg {
+    padding-top: 10px;
+  }
+  .bar2BgText {
+    width: 343px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 26px;
+    display: flex;
+  }
+  .bar2BgTextu1 {
+    /*width: 200px;*/
+    text-align: left;
+    /*margin: 0 auto;*/
+    font-size: 26px;
+    /*display: none;*/
+  }
+  .bar2BgTextu11 {
+    display: inline;
+    margin-left: 5px;
+    color: #BBFF19;
+  }
+  .bar2BgText1 {
+    width: 343px;
+    text-align: right;
+    margin: 0 auto 24px;
+    font-size: 16px;
+  }
+  .descGroup {
+    width: 343px;
+    height: 386px;
+    background: url('../../public/desc-group.png') no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    display: block;
+  }
+  .bar2BgTextBtn{
+    width: 125px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .bar3Bg {
+    padding: 36px 0;
+  }
+  .bar3BgTxt1, .bar3BgBarText1, .bar3BgBottomBar, .bar4BgText4, .bar4BgBottomBarText, .bar5Bg {
+    display: none;
+  }
+  .bar3BgBar {
+    display: block;
+  }
+  .bar3BgBarText0 {
+    width: 343px;
+    margin: 0 auto;
+    display: block;
+    color: #9D9D9D;
+    font-size: 16px;
+  }
+  .bar3BgBarText2 {
+    width: 343px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+  .mobileBgBottomBar {
+    width: 343px;
+    height: 481px;
+    background: url('../../public/demo-device.png') no-repeat;
+    background-size: contain;
+    margin: 24px auto;
+    display: block;
+  }
+  .bar4Bg {
+    padding-top: 0;
+  }
+  .bar4BgText1, .bar4BgText2, .bar4BgText3 {
+    font-size: 16px;
+    margin: 0 auto;
+  }
+  .bar4BgBottomBarImg {
+    width: 343px;
+    height: 198px;
+    margin: 0 auto;
+  }
+  .bar6Bg {
+    padding: 0;
+  }
+  .bar6Bg {
+    width: 375px;
+    height: 220px;
+    background: url('../../public/mobile-btm.png') no-repeat;
+    background-size: contain;
+    margin: 28px auto 37px;
+  }
+}

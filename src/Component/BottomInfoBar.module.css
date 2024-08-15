@@ -70,3 +70,11 @@
     cursor: pointer;
     margin-top: 0.5vh;
 }
+
+
+@media  (min-width: 300px) and (max-width: 1025px) {
+    .bottomBar{
+        display: none;
+    }
+
+}

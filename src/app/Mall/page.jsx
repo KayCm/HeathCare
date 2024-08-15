@@ -3,31 +3,12 @@ import style from './page.module.scss'
 import {useRouter} from "next/navigation";
 import Modal from "react-modal";
 import {useEffect, useRef, useState} from "react";
-import {Input} from "antd";
-import {
-    clusterApiUrl,
-    Connection,
-    LAMPORTS_PER_SOL,
-    PublicKey,
-    SystemProgram,
-    Transaction,
-    TransactionInstruction
-} from "@solana/web3.js";
-// import * as web3 from "@solana/web3.js";
 import {NetRequest} from "@/Component/Tools";
-import {
-    ASSOCIATED_TOKEN_PROGRAM_ID,
-    createAssociatedTokenAccountInstruction, createTransferInstruction,
-    getAccount,
-    getAssociatedTokenAddress,
-    Token,
-    TOKEN_PROGRAM_ID
-} from "@solana/spl-token";
-import * as splToken from "@solana/spl-token";
 import {ConnectTools} from "@/Component/ConnectTools";
 import {saveInfo, saveWallet} from "@/redux/features/auth";
 import AlertConnectSelect from "@/Component/AlertConnectSelect";
 import {useDispatch, useSelector} from "react-redux";
+import { Spin } from 'antd';
 
 export default function Mall() {
 
@@ -48,11 +29,15 @@ export default function Mall() {
 
     useEffect(()=>{
 
-        setNameStr(authtReducer.userName)
-        setAddressStr(authtReducer.userAddress)
-        setPhoneStr(authtReducer.userPhone)
+        setNameStr(authtReducer.shopingName)
+        setAddressStr(authtReducer.shopingAddress)
+        setPhoneStr(authtReducer.shopingPhone)
 
-    },[])
+    },[authtReducer])
+
+    // console.log(authtReducer)
+
+    const [payLoading,setPayLoading] = useState(false)
 
     function alertCheck() {
 
@@ -67,25 +52,30 @@ export default function Mall() {
                        onRequestClose={() => SetCheckShow(false)}>
             <div className={style.checkout}>
                 <div className={style.address_topBar}>
-                    <p className={style.address_topBar_txt}>Check Out</p>
+                    <div className={style.address_topBar_txt}>Check Out</div>
                     <div onClick={()=>{
                         SetCheckShow(false)
                     }}  className={style.address_topBar_btn} />
                 </div>
 
                 <div className={style.checkout_bar}>
-                    <p className={style.checkout_bar_txt1}>$</p>
-                    <p className={style.checkout_bar_txt2}>500</p>
+                    <div className={style.checkout_bar_txt1}>$</div>
+                    <div className={style.checkout_bar_txt2}>500</div>
                 </div>
 
                 <div className={style.checkout_bar}>
 
                     <div onClick={()=>{
                         // sendUsdt('7ApEemTPojcBdXxcrhXkh1M8BDugCEyCrRJkpTiP4M5o',500)
-                        sendUSDT('7ApEemTPojcBdXxcrhXkh1M8BDugCEyCrRJkpTiP4M5o',0.001)
+                        setPayLoading(true)
+                        sendUSDT('7ApEemTPojcBdXxcrhXkh1M8BDugCEyCrRJkpTiP4M5o',1)
                     }} className={style.checkout_btn}>
                         Pay Now
+
+                        {payLoading&&<Spin style={{marginLeft:'20px'}}/>}
                     </div>
+
+
 
                 </div>
 
@@ -112,26 +102,29 @@ export default function Mall() {
             <div className={style.address}>
 
                 <div className={style.address_topBar}>
-                    <p className={style.address_topBar_txt}>Address</p>
+                    <div className={style.address_topBar_txt}>Address</div>
                     <div onClick={()=>{
                         SetAddressShow(false)
                     }}  className={style.address_topBar_btn} />
                 </div>
 
                 <div className={style.address_bar}>
-                    <p className={style.address_bar_text}>Address<p className={style.address_bar_text1}>*</p> </p>
+                    <div className={style.address_bar_text}>Address<div className={style.address_bar_text1}>*</div> </div>
                     {/*<input placeholder="type in address" value={addressStr}  />*/}
-                    <Input.TextArea rows={4} value={addressStr} placeholder="type in address" onChange={(e) => setAddressStr(e.target.value)}  className={style.address_bar_input} />
+                    {/*<Input.TextArea rows={4} value={addressStr} placeholder="type in address" onChange={(e) => setAddressStr(e.target.value)}  className={style.address_bar_input} />*/}
+                    <textarea rows={4} value={addressStr} placeholder="type in address" onChange={(e) => setAddressStr(e.target.value)}  className={style.address_bar_input} />
                 </div>
 
                 <div className={style.address_bar1} style={{marginTop:'24px'}}>
-                    <p className={style.address_bar1_text}>Phone<p className={style.address_bar1_text1}>*</p> </p>
-                    <Input placeholder="type in phone" value={phoneStr} onChange={(e) => setPhoneStr(e.target.value)}  className={style.address_bar1_input1} />
+                    <div className={style.address_bar1_text}>Phone<div className={style.address_bar1_text1}>*</div> </div>
+                    {/*<Input placeholder="type in phone" value={phoneStr} onChange={(e) => setPhoneStr(e.target.value)}  className={style.address_bar1_input1} />*/}
+                    <input placeholder="type in phone" value={phoneStr} onChange={(e) => setPhoneStr(e.target.value)}  className={style.address_bar1_input1} />
                 </div>
 
                 <div className={style.address_bar1} style={{marginTop:'24px'}}>
-                    <p className={style.address_bar1_text}>Name<p className={style.address_bar1_text1}>*</p> </p>
-                    <Input placeholder="type in Name" value={nameStr} onChange={(e) => setNameStr(e.target.value)}  className={style.address_bar1_input1} />
+                    <div className={style.address_bar1_text}>Name<p className={style.address_bar1_text1}>*</p> </div>
+                    {/*<Input placeholder="type in Name" value={nameStr} onChange={(e) => setNameStr(e.target.value)}  className={style.address_bar1_input1} />*/}
+                    <input placeholder="type in Name" value={nameStr} onChange={(e) => setNameStr(e.target.value)}  className={style.address_bar1_input1} />
                 </div>
 
 
@@ -147,6 +140,9 @@ export default function Mall() {
                         // localStorage.setItem('userphone',phoneStr)
                         //
 
+
+                        saveAddress(nameStr,addressStr,phoneStr)
+
                         dispatch(saveInfo({userName:nameStr, userPhone:phoneStr, userAddress:addressStr}))
 
 
@@ -161,51 +157,124 @@ export default function Mall() {
 
     }
 
+    function saveAddress(name,address,phone) {
+
+        let url = 'http://39.107.119.127:9595/user/msg/add'
+        let params = {
+            content : name,
+            address: authtReducer.walletAddress,
+            // tel:phone,
+            // country:'1',
+            // city:'1',
+            // code:'1',
+            // street:address,
+            // community:'1'
+        }
+
+        console.log('params')
+        console.log(params)
+
+        NetRequest(url,params).then(res=>{
+            console.log(res)
+
+            getAddress(authtReducer.walletAddress)
+            alert('save success')
+        }).catch(err=>{
+            console.log(err)
+
+            alert('save failed')
+        })
+
+
+    }
+
     function sendUSDT(to,amount) {
 
         if (!globalProvider.obj){
 
-            console.log(globalProvider.obj)
-            console.log('globalProvider.obj is null')
+            // console.log(globalProvider.obj)
+            // console.log('globalProvider.obj is null')
+            //
+            // SetCheckShow(false)
+            //
+            // selectRefs.current?.show()
 
-            SetCheckShow(false)
-
-            selectRefs.current?.show()
+            // ConnectTools.okxConnect().then(res=>{
+            //     sendUSDT(to,amount)
+            // })
 
             return;
 
         }else{
 
             let pubKey = authtReducer.walletAddress
+            //
+            //
+            // ConnectTools.okxSendUSDT(to,pubKey,amount).then(res=>{
+            //     console.log('res')
+            //     console.log(res)
+            //     orderAdd(res,amount,pubKey)
+            // }).catch(err=>{
+            //     console.log('err')
+            //     console.log(err)
+            //     setPayLoading(false)
+            // })
+            //
+            //
+            // return;
 
             switch (globalProvider.type) {
                 default:
                 case "okx":{
 
-                    ConnectTools.okxSendUSDT(to,pubKey,amount).then(res=>{
-                        console.log('res')
-                        console.log(res)
-                        orderAdd(res,amount,pubKey)
-                    }).catch(err=>{
-                        console.log('err')
-                        console.log(err)
-                    })
 
-                    break;
+                    switch (globalProvider.chainStr) {
+
+                        case 0:{
+
+                            ConnectTools.okxSendUSDT(to,pubKey,amount).then(res=>{
+                                console.log('res')
+                                console.log(res)
+                                orderAdd(res,amount,pubKey)
+                            }).catch(err=>{
+                                console.log('err')
+                                console.log(err)
+                                setPayLoading(false)
+                            })
+
+                            break;
+
+                        }
+                        case 1:
+                        case 2:
+                        case 3:{
+                            ConnectTools.okxEthSendUSDT('0x6beE8F94E38Fe3ff152BfF17cE344B2AAb8F4a28',pubKey,amount).then(res=>{
+                                console.log(res)
+                                orderAdd(res,amount,pubKey)
+                            }).catch(err=>{
+                                console.log(err)
+                                setPayLoading(false)
+                            })
+                            break;
+                        }
+
+                    }
+
                 }
-                case "onekey":{
-
-                    ConnectTools.onekeySendUSDT(to,pubKey,amount).then(res=>{
-                        console.log('res')
-                        console.log(res)
-                        orderAdd(res,amount,pubKey)
-                    }).catch(err=>{
-                        console.log('err')
-                        console.log(err)
-                    })
-
-                    break;
-                }
+                // case "onekey":{
+                //
+                //     ConnectTools.onekeySendUSDT(to,pubKey,amount).then(res=>{
+                //         console.log('res')
+                //         console.log(res)
+                //         orderAdd(res,amount,pubKey)
+                //     }).catch(err=>{
+                //         console.log('err')
+                //         console.log(err)
+                //         setPayLoading(false)
+                //     })
+                //
+                //     break;
+                // }
             }
 
 
@@ -252,22 +321,68 @@ export default function Mall() {
         console.log(params)
         NetRequest(url,params).then(res=>{
             console.log(res)
+            SetCheckShow(false)
+            setPayLoading(false)
             alert('order success')
         }).catch(err=>{
             console.log(err)
+            SetCheckShow(false)
+            setPayLoading(false)
             alert('order failed')
         })
     }
+
+    function getAddress(address) {
+
+        let url = 'http://39.107.119.127:9595/user/get/address'
+        let params = {
+            tel:'',
+            address: address,
+        }
+
+        console.log('params')
+        console.log(params)
+
+        NetRequest(url,params).then(res=>{
+            console.log(res)
+
+            setNameStr(res.data.name)
+            setAddressStr(res.data.street)
+            setPhoneStr(res.data.tel)
+
+            dispatch(saveInfo({userName:res.data.name, userPhone:res.data.tel, userAddress:res.data.street}))
+
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+    function getInvCode() {
+
+        // /user/code/get
+
+        let url = 'http://39.107.119.127:9595/user/code/get'
+
+        NetRequest(url,null).then(res=>{
+            console.log(res)
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+
+
 
     return(<div className={style.mallmain}>
 
         <div className={style.mallTop} >
             <div>
-                <div className={style.mallToptitle1}>Welcome to the JoinCare Mall.</div>
-                <div className={style.mallTopdetail}>Global premium digital healthcare services, leading in the medical field.</div>
+                <div className={style.mallToptitle1}>Welcome to the JoinCare Mall</div>
+                <div className={style.mallTopdetail}>Global premium digital healthcare services, leading in the medical field</div>
             </div>
 
-            <div style={{display:'flex'}}>
+            <div className={style.mallTopbox} style={{display:'flex'}}>
                 <div onClick={()=>{
                     SetAddressShow(true)
 
@@ -289,13 +404,13 @@ export default function Mall() {
                 </div>
                 <div onClick={()=>{
 
-
-                    // sendTx('5i7a9SDqA3z3G24pvUPJrRGWeVq3cdWVNmuMaySzkm3F',0.001)
-
-                    // console.log(window.globalProvider)
-
-
                     SetCheckShow(true)
+
+                    // getInvCode()
+
+                    // console.log(authtReducer)
+
+
 
                 }} className={style.mallMiddleBoxDetailBtn}>
                     Buy Now
@@ -306,7 +421,7 @@ export default function Mall() {
                 <div className={style.mallMiddleBoxDetail}>
                     <div className={style.mallMiddleBoxDetail_img1}/>
                     {/*<div className={style.mallMiddleBoxDetail_img_mask} />*/}
-                    <div className={style.mallMiddleBoxDetail_text1}>Blood glucose monitor<br/><p style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</p></div>
+                    <div className={style.mallMiddleBoxDetail_text1}>Blood glucose monitor<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>
                 </div>
                 {/*<div className={style.mallMiddleBoxDetailBtn}>*/}
                 {/*    Buy Now*/}
@@ -318,7 +433,7 @@ export default function Mall() {
                     <div className={style.mallMiddleBoxDetail_img2}/>
                     {/*<div className={style.mallMiddleBoxDetail_img_mask} />*/}
                     <div className={style.mallMiddleBoxDetail_text1}>Human Health
-                        Diagnostic Device<br/><p style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</p></div>
+                        Diagnostic Device<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>
                 </div>
                 {/*<div className={style.mallMiddleBoxDetailBtn}>*/}
                 {/*    Buy Now*/}
@@ -328,15 +443,17 @@ export default function Mall() {
 
         </div>
 
-        <AlertConnectSelect refs={selectRefs} successBlock={(res)=>{
+        {/*<AlertConnectSelect refs={selectRefs} successBlock={(res)=>{*/}
 
-            console.log(res)
+        {/*    console.log(res)*/}
 
-            dispatch(saveWallet({walletType:res.type, walletAddress:res.res}))
+        {/*    getAddress(res)*/}
 
-            // sendUSDT('9awYA3gj3djkbXSMushuTbfin433WbShDR85M1UbGQX4',0.001)
+        {/*    dispatch(saveWallet({walletType:res.type, walletAddress:res.res}))*/}
 
-        }} />
+        {/*    // sendUSDT('9awYA3gj3djkbXSMushuTbfin433WbShDR85M1UbGQX4',0.001)*/}
+
+        {/*}} />*/}
 
         {alertCheck()}
 

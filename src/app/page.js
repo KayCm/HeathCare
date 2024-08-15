@@ -16,7 +16,7 @@ export default function Page() {
 
           <div className={styles.bar1BgRightImg} />
 
-          <div className={styles.bar1BgText1}>Let discipline give you freedom<div className={styles.bar1BgText1} style={{width:'10px',color:'#BBFF19'}}>!</div></div>
+          <div className={styles.bar1BgText1}>Präzise Pflege mit großer Liebe<div className={styles.bar1BgText1} style={{width:'10px',color:'#BBFF19'}}>!</div></div>
           <div className={styles.bar1BgText2}>JoinCare</div>
           <div className={styles.bar1BgText3}>Global high-quality digital <br/>medical and health services.</div>
           <div className={styles.bar1BgText4}>Building the world's largest <br/>health management community</div>
@@ -35,7 +35,7 @@ export default function Page() {
 
                   <div>
                       <div className={styles.barDownLoadBgTitle1}>JoinCare APP</div>
-                      <div className={styles.barDownLoadBgTitle2}>让自律给你自由</div>
+                      <div className={styles.barDownLoadBgTitle2}>精准呵护,为爱不凡</div>
                   </div>
 
                   <div className={styles.barDownLoadBgBox}>
@@ -116,7 +116,7 @@ export default function Page() {
         </div>
 
         <div className={styles.bar3Bg} >
-            <div className={styles.bar3BgTxt1}>Ai<p className={styles.bar3BgTxt2}>intelligent diagnostic</p><p className={styles.bar3BgTxt3}>and therapeutic health devices</p></div>
+            <div className={styles.bar3BgTxt1}>Ai<p className={styles.bar3BgTxt2} style={{marginLeft:'8px'}}>intelligent diagnostic</p><p className={styles.bar3BgTxt3} style={{marginLeft:'8px'}}>and therapeutic health devices</p></div>
             <div className={styles.bar3BgBar}>
                 <div className={styles.bar3BgBarText1}>Promoting hundreds of millions of <br/>users to engage in scientifically <br/>effective health management.</div>
                 <div className={styles.bar3BgBarText2}>
@@ -247,8 +247,8 @@ export default function Page() {
         <div className={styles.bar5Bg} >
 
             <div className={styles.bar5BgText1}>AI
-                <div className={styles.bar5BgText2}>Healthcare Eco-System</div>
-                <div className={styles.bar5BgText3}>Partners</div>
+                <div className={styles.bar5BgText2} style={{marginLeft:'8px'}}>Healthcare Eco-System</div>
+                <div className={styles.bar5BgText3} style={{marginLeft:'8px'}}>Partners</div>
             </div>
 
         </div>

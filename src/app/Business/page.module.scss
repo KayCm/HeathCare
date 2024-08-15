@@ -59,3 +59,45 @@
     }
 
 }
+
+@media  (min-width: 300px) and (max-width: 1025px) {
+  .biz{
+    width: 375px;
+    min-height: 100vh;
+    margin: 0 auto;
+    &topBar {
+      width: 375px;
+      margin: 0 auto;
+      &title{
+        font-size: 20px;
+        line-height: 20px;
+        text-align: center;
+        margin-top: 100px;
+      }
+      &text{
+        font-size: 14px;
+        line-height: 14px;
+        text-align: center;
+        margin-top: 24px;
+      }
+      &img{
+        margin-top: 268px;
+        width: 343px;
+        height: 134px;
+        background:url("../../../public/en/about/image(2).png");
+        background-size: contain;
+      }
+
+      &img1{
+        width: 160px;
+        height: 160px;
+        background: url("../../../public/en/about/image.png");
+        position: absolute;
+        top: 53px;
+        left: 0;
+        background-size: contain;
+      }
+    }
+
+  }
+}

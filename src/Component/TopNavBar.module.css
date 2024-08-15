@@ -9,11 +9,11 @@
 }
 
 .logo{
-    width: 21.85vh;
-    height: 4.44vh;
-    background: url("../../public/容器 133443.png");
-    background-size: 21.85vh 4.44vh;
-    /*background-size: cover;*/
+    width: 236px;
+    height: 48px;
+    background: url("../../public/logo.png") no-repeat;
+    /*background-size: 21.85vh 4.44vh;*/
+    background-size: contain;
 }
 
 .menuHome{
@@ -32,7 +32,6 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 25px;
-
 }
 .menuHeathMall{
     width: 169px;
@@ -71,7 +70,7 @@
     padding-top: 25px;
 }
 .menuAboutUS{
-    width: 97px;
+    width: 100px;
     height: 80px;
     font-family: PingFang TC, PingFang TC;
     font-weight: 500;
@@ -90,14 +89,69 @@
     padding-top: 25px;
 }
 
-.menuLink{
-    width: 200px;
-    height: 40px;
-    /*background: #BBFF19;*/
-    border-color: #BBFF19;
+.wpSelectBox{
+    width: 96px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    /*background-color: #0AB2E9;*/
+    z-index: 33;
+}
+
+.menuBlockSelect{
+    width: 80px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #BBFF19;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.menuBlockSelectAlertBox {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    width: 140px;
+    background-color: #0F1112;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*margin-top: 160px;*/
+    color: #BBFF19;
+    z-index: 99;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menuBlockSelectAlertBoxSingle{
+    border-radius: 5px;
+}
+
+.menuBlockSelectAlertBoxSingle:hover{
+    border-color: #0AB2E9;
     border-style: solid;
     border-width: 1px;
-    border-radius: 12px 12px 12px 12px;
+    border-radius: 5px;
+}
+
+.menuLink{
+    width: 140px;
+    height: 40px;
+    /*background: #BBFF19;*/
+    /*border-color: #BBFF19;*/
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    border-radius: 8px 8px 8px 8px;
+
+    background: radial-gradient( 0% 107% at 185% 64%, #2DFAA5 0%, #0AB2E9 100%);
+    background: linear-gradient(90deg, #0AB2E9 0%, #2DFAA5 100%);;
     font-family: PingFang TC, PingFang TC;
     font-weight: 500;
     font-size: 17px;
@@ -110,16 +164,17 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: #BBFF19;
+    color: #000;
 }
 
 .menuLinkBox {
-    width: 200px;
+    width: 140px;
     height: 80px;
     border-color: #BBFF19;
     border-style: solid;
     border-width: 1px;
     border-radius: 12px 12px 12px 12px;
+    border-radius: 8px;
     position: absolute;
     margin-top: 4px;
     color: #BBFF19;
@@ -128,7 +183,7 @@
 }
 
 .menuLinkBoxSinge{
-    width: 200px;
+    width: 140px;
     height: 40px;
     color: #BBFF19;
     text-align: center;
@@ -231,4 +286,80 @@
     text-align: center;
     font-style: normal;
     text-transform: none;
+}
+
+@media  (min-width: 300px) and (max-width: 1025px)  {
+    .menuBlockSelect,.menuLink,.menuHome, .menuHeathMall, .menuNoSelect, .menuBusiness, .menuNoSelect, .menuAboutUS{
+        display: none;
+    }
+    .homeMobileNume {
+        width: 24px;
+        height: 24px;
+        background: url('../../public/humbarger.png') no-repeat;
+        background-size: contain;
+        display: block;
+        color: #fff;
+        margin-left: 16px;
+    }
+    .playMenu {
+        width: 24px;
+        height: 24px;
+        background: url('../../public/humbarger.png') no-repeat;
+        background-size: contain;
+        display: block;
+        color: #fff;
+        margin-left: 16px;
+        transform: rotate(270deg);
+    }
+    .menuLink {
+        width: 96px;
+        height: 28px;
+        font-size: 14px;
+    }
+    .logo {
+        width: 118px;
+        height: 24px;
+    }
+    .NavBar {
+        padding: 0 16px 0 24px;
+        position: relative;
+    }
+    .mobileMenu {
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        z-index: 10;
+        width: 100vw;
+        height: 240px;
+        /*background-color: #0AB2E9;*/
+    }
+    .mobileMenuItem {
+        width: 100vw;
+        height: 50px;
+        padding-left: 20px;
+        background: #060606;
+    }
+
+    .modalBg{
+        width: 275px;
+        height: 130px;
+        background: #151515;
+        border-radius: 12px 12px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 24px;
+    }
+
+    .modalBgBarText{
+        font-size: 15px;
+    }
+
+    .modalBgBarBtn{
+        margin-top: 25px;
+        width: 163px;
+        height: 32px;
+        font-size: 14px;
+    }
 }
