@@ -3,12 +3,13 @@ import React from "react";
 import style from './page.module.scss'
 
 function Business() {
-
     return(<div className={style.biz}>
         <div className={style.biztopBar}>
 
             <p className={style.biztopBartitle}>Business cooperation</p>
-            <p className={style.biztopBartext}>healthcare2000.1.1@gmail.com</p>
+            <a href="mailto:ervices@health-care.global">
+            <p className={style.biztopBartext}>Services@health-care.global</p>
+            </a>
 
             <div className={style.biztopBarimg} />
 

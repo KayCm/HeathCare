@@ -13,15 +13,19 @@ function BottomInfoBar() {
             <div className={styles.InfoBarBox1Logo} />
 
             <div className={styles.InfoBarBox1LogoBox}>
-                <YoutubeOutlined style={{color:'#fff'}}/>
+                <YoutubeOutlined  onClick={()=>{
+                    window.open('https://www.youtube.com/@JoinCare ')
+                }}  style={{color:'#fff'}}/>
                 <XOutlined onClick={()=>{
-                    window.open('https://twitter.com/health_care2020')
+                    window.open('https://x.com/JoinCare_Server')
                 }} style={{color:'#fff',cursor: 'pointer'}}/>
-                <DiscordOutlined style={{color:'#fff'}}/>
-                <SendOutlined onClick={()=>{
-                    // https://t.me/health_care2020
-                    window.open('https://t.me/health_care2020')
-                }} style={{color:'#fff',cursor: 'pointer'}}/>
+                <DiscordOutlined onClick={()=>{
+                    window.open('https://discord.gg/VXFxcwkK')
+                }} style={{color:'#fff'}}/>
+
+                <a href="mailto:ervices@health-care.global">
+                    <SendOutlined style={{color:'#fff',cursor: 'pointer'}}/>
+                </a>
             </div>
 
 

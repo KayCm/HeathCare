@@ -5,10 +5,23 @@ import Modal from "react-modal";
 import {useEffect, useRef, useState} from "react";
 import {NetRequest} from "@/Component/Tools";
 import {ConnectTools} from "@/Component/ConnectTools";
-import {saveInfo, saveWallet} from "@/redux/features/auth";
+import {saveInfo, saveUserInfo, saveWallet} from "@/redux/features/auth";
 import AlertConnectSelect from "@/Component/AlertConnectSelect";
 import {useDispatch, useSelector} from "react-redux";
 import { Spin } from 'antd';
+
+import binance from '../../../public/newIcon/组 133630@2x (2).png'
+import eth from '../../../public/newIcon/组 133630@2x.png'
+import polugon from '../../../public/newIcon/组 133630@2x (1).png'
+import solana from '../../../public/newIcon/组 133630@2x (3).png'
+import Image from "next/image";
+
+const blockArr = [
+    {name:'Solana',value:solana},
+    {name:'Binance',value:binance},
+    {name:'Etherum',value:eth},
+    {name:'Polugon',value:polugon}
+]
 
 export default function Mall() {
 
@@ -38,6 +51,241 @@ export default function Mall() {
     // console.log(authtReducer)
 
     const [payLoading,setPayLoading] = useState(false)
+
+    const [loginShow,setLoginShow] = useState(false)
+    const [loginSelectShow,setLoginSelectShow] = useState(false)
+    const [loginChainSelect,setLoginChainSelect] = useState(0)
+
+
+    function getAddress(address) {
+
+        let url = 'http://39.107.119.127:9595/user/get/address'
+        let params = {
+            tel:'',
+            address: address,
+        }
+
+        console.log('params')
+        console.log(params)
+
+        NetRequest(url,params).then(res=>{
+            console.log(res)
+
+            dispatch(saveInfo({userName:res.data.name, userPhone:res.data.tel, userAddress:res.data.street}))
+
+        }).catch(err=>{
+            console.log(err)
+        })
+
+    }
+    function getStrAndSign(address,type=0) {
+
+        let url = 'http://39.107.119.127:9595/user/str'
+
+        let params = {
+            address:address
+        }
+
+        NetRequest(url,params).then(res=> {
+
+            console.log(res.data)
+            console.log(res.data)
+            console.log(res.data)
+
+            if (type == 1){
+                ConnectTools.okxEthSign(address,res.data).then(res=>{
+
+                    loginWithEth(address,res)
+
+                }).catch(err=>{
+
+                    setLoginShow(false)
+                })
+
+
+            }else{
+                ConnectTools.okxSign(res.data).then(res=>{
+                    console.log(res)
+                    console.log(res)
+                    console.log(res)
+
+                    login(address,res)
+                }).catch(err=>{
+                    setLoginShow(false)
+                })
+            }
+
+
+
+
+        }).catch(err=>{
+            console.log(err)
+            setLoginShow(false)
+        })
+
+    }
+    function loginWithEth(address,signature) {
+
+        let url = "http://39.107.119.127:9595/user/login2"
+
+        let chain = 0
+
+
+        // if (addressChain == 1){
+        //     chain = 2
+        // }else if (addressChain == 2){
+        //     chain = 0
+        // }else if (addressChain == 3){
+        //     chain = 1
+        // }
+
+        let params = {
+            type:chain,
+            address:address,
+            signature:signature
+        }
+
+        console.log(params)
+
+        NetRequest(url,params).then(res=> {
+
+            console.log(res)
+            console.log(res)
+            console.log(res)
+
+            setLoginShow(false)
+            dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
+
+        }).catch(err=>{
+            console.log(err)
+            setLoginShow(false)
+        })
+
+    }
+    function login(address,signature) {
+
+        // /user/login
+
+        let url = 'http://39.107.119.127:9595/user/login'
+
+        let params = {
+            address:address,
+            signature:signature
+        }
+
+        console.log(params)
+
+        NetRequest(url,params).then(res=> {
+
+            console.log(res)
+            console.log(res)
+            console.log(res)
+            setLoginShow(false)
+            dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
+
+        }).catch(err=>{
+            console.log(err)
+            setLoginShow(false)
+        })
+
+    }
+
+    function loginAlert() {
+
+        const customStyles = {
+            overlay: {backgroundColor: 'rgba(0, 0, 0, 0.0)', zIndex: '999999999'},
+            content: {top: '0%', left: '0%', right: '0%', bottom: '0%', alignItems: 'center'}
+        }
+
+        return (<Modal style={customStyles}
+                       className={style.glass}
+                       isOpen={loginShow}
+                       onRequestClose={() => setLoginShow(false)}>
+            <div className={style.loginAlert}>
+                <div className={style.loginAlert_title}>
+                    <div className={style.loginAlert_titletxt}>Select the linked wallet</div>
+                    <div className={style.loginAlert_titleimg} onClick={()=>{setLoginShow(false)}} />
+                </div>
+
+                <div className={style.loginAlert_select}>
+
+                        <div className={style.loginAlert_select_title}>Select the wallet</div>
+                        <div onClick={()=>{setLoginSelectShow(!loginSelectShow)}} className={style.loginAlert_select_box}>
+
+                            <div style={{ display: 'flex', alignItems: 'center'}}>
+                                <Image src={blockArr[loginChainSelect].value} width={24} height={24} alt="1"/>
+                                <div style={{marginLeft:'10px'}}>{blockArr[loginChainSelect].name}</div>
+                            </div>
+
+                            <div className={style.loginAlert_select_box_alertBox_selectBarLeftIcon} />
+
+                            {loginSelectShow&&(<div  className={style.loginAlert_select_box_alertBox}>
+                                {blockArr.map((value1,index)=>{
+
+                                    const {name,value} = value1
+
+                                    return(<div onClick={()=>{
+                                        setLoginChainSelect(index)
+
+                                    }} className={style.loginAlert_select_box_alertBox_selectBar}>
+                                        <Image src={value} width={24} height={24} alt="1"/>
+                                        <div style={{marginLeft:'10px'}}>{name}</div>
+                                    </div>)
+                                })}
+                            </div>)}
+                    </div>
+
+
+
+                </div>
+
+                <div onClick={()=>{
+
+                    window.globalProvider.chainStr=loginChainSelect
+
+
+                    if (loginChainSelect == 0){
+
+                        ConnectTools.okxConnect().then(res=> {
+                            console.log('res')
+                            console.log(res)
+                            localStorage.setItem('publicKey', res.toString())
+
+                            getAddress(res.toString())
+                            //
+                            getStrAndSign(res.toString(),0)
+
+                            dispatch(saveWallet({walletType:'okx', walletAddress:res.toString(),walletChain:loginChainSelect}))
+                        }).catch(err=>{
+                            alert('okx not install')
+                        })
+
+                    }else{
+
+                        ConnectTools.okxEthConnect(loginChainSelect).then(res=>{
+                            console.log("res")
+                            localStorage.setItem('publicKey', res.toString())
+                            getAddress(res.toString())
+                            getStrAndSign(res.toString(),1)
+                            dispatch(saveWallet({walletType:'okx', walletAddress:res,walletChain:loginChainSelect}))
+                        }).catch(err=>{
+                            alert('okx not install')
+                        })
+
+                    }
+
+                }} className={style.loginAlert_select_box_alertBox_btn}>
+                    <div className={style.loginAlert_select_box_alertBox_btn_txt}>
+                        Link wallet
+                    </div>
+
+                </div>
+
+
+            </div>
+        </Modal>)
+
+    }
 
     function alertCheck() {
 
@@ -384,11 +632,24 @@ export default function Mall() {
 
             <div className={style.mallTopbox} style={{display:'flex'}}>
                 <div onClick={()=>{
-                    SetAddressShow(true)
+
+                    if (authtReducer.walletType){
+                        SetAddressShow(true)
+                    }else{
+                        setLoginShow(true)
+                    }
+
 
                 }} className={style.mallTopbtn}>Setting Address</div>
                 <div onClick={()=>{
-                    router.push('/Mall/OrderList')
+
+                    if (authtReducer.walletType){
+                        router.push('/Mall/OrderList')
+                    }else{
+                        setLoginShow(true)
+                    }
+
+
                 }} className={style.mallTopbtn}>Check OrderList</div>
             </div>
 
@@ -398,47 +659,53 @@ export default function Mall() {
         <div className={style.mallMiddle}>
 
             <div className={style.mallMiddleBoxDetailOut}>
+
                 <div className={style.mallMiddleBoxDetail}>
                     <div className={style.mallMiddleBoxDetail_img}/>
-                    <div className={style.mallMiddleBoxDetail_text1}>Human body health <br/>diagnostic device<br/>$500.00</div>
+                    <div className={style.mallMiddleBoxDetail_text}>Blood pressure detector ｜ Human Health Diagnostic Device ｜Blood glucose monitor</div>
+                    <div className={style.mallMiddleBoxDetail_textt}>$699</div>
                 </div>
                 <div onClick={()=>{
-
-                    SetCheckShow(true)
-
-                    // getInvCode()
-
-                    // console.log(authtReducer)
-
-
-
+                    if (authtReducer.token){
+                        SetCheckShow(true)
+                    }else {
+                        setLoginShow(true)
+                    }
                 }} className={style.mallMiddleBoxDetailBtn}>
-                    Buy Now
+
+                    {authtReducer.walletType?'Buy Now':(<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div className={style.loginAlert_select_box_alertBox_btn_btnImg}/>
+                        <div>OKX</div>
+                    </div>)}
+
+                    {authtReducer.walletType&&(<div className={style.mallMiddle_btnImg} />)}
+
                 </div>
+
             </div>
 
-            <div className={style.mallMiddleBoxDetailOut}>
-                <div className={style.mallMiddleBoxDetail}>
-                    <div className={style.mallMiddleBoxDetail_img1}/>
-                    {/*<div className={style.mallMiddleBoxDetail_img_mask} />*/}
-                    <div className={style.mallMiddleBoxDetail_text1}>Blood glucose monitor<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>
-                </div>
-                {/*<div className={style.mallMiddleBoxDetailBtn}>*/}
-                {/*    Buy Now*/}
-                {/*</div>*/}
-            </div>
+            {/*<div className={style.mallMiddleBoxDetailOut}>*/}
+            {/*    <div className={style.mallMiddleBoxDetail}>*/}
+            {/*        <div className={style.mallMiddleBoxDetail_img1}/>*/}
+            {/*        /!*<div className={style.mallMiddleBoxDetail_img_mask} />*!/*/}
+            {/*        <div className={style.mallMiddleBoxDetail_text1}>Blood glucose monitor<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>*/}
+            {/*    </div>*/}
+            {/*    /!*<div className={style.mallMiddleBoxDetailBtn}>*!/*/}
+            {/*    /!*    Buy Now*!/*/}
+            {/*    /!*</div>*!/*/}
+            {/*</div>*/}
 
-            <div className={style.mallMiddleBoxDetailOut}>
-                <div className={style.mallMiddleBoxDetail}>
-                    <div className={style.mallMiddleBoxDetail_img2}/>
-                    {/*<div className={style.mallMiddleBoxDetail_img_mask} />*/}
-                    <div className={style.mallMiddleBoxDetail_text1}>Human Health
-                        Diagnostic Device<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>
-                </div>
-                {/*<div className={style.mallMiddleBoxDetailBtn}>*/}
-                {/*    Buy Now*/}
-                {/*</div>*/}
-            </div>
+            {/*<div className={style.mallMiddleBoxDetailOut}>*/}
+            {/*    <div className={style.mallMiddleBoxDetail}>*/}
+            {/*        <div className={style.mallMiddleBoxDetail_img2}/>*/}
+            {/*        /!*<div className={style.mallMiddleBoxDetail_img_mask} />*!/*/}
+            {/*        <div className={style.mallMiddleBoxDetail_text1}>Human Health*/}
+            {/*            Diagnostic Device<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>*/}
+            {/*    </div>*/}
+            {/*    /!*<div className={style.mallMiddleBoxDetailBtn}>*!/*/}
+            {/*    /!*    Buy Now*!/*/}
+            {/*    /!*</div>*!/*/}
+            {/*</div>*/}
 
 
         </div>
@@ -459,6 +726,7 @@ export default function Mall() {
 
         {alertAddress()}
 
+        {loginAlert()}
     </div>)
 
 }

@@ -17,7 +17,7 @@ function AboutUS() {
 
             <div className={style.AboutMaintopBartitle1}>About<div className={style.AboutMaintopBartitle2}>JoinCare</div></div>
             <div className={style.AboutMaintopBartext}>
-                JoinCare is operated under the compliant foundation model from Singapore, with the operating entity established jointly by a group of investors with extensive experience, high visibility, and strong capabilities in the Chinese health consulting industry, as well as technical experts with rich experience in the Internet and blockchain technology and applications field. It is backed by the strong industry operation capabilities of its parent company - Askap Social Care Guangxun Health Consulting Group, jointly committed to creating "global high-quality digital medical health services.
+                JoinCare is operated under the compliant foundation model from Singapore, with the operating entity established jointly by a group of investors with extensive experience, high visibility, and strong capabilities in the Chinese health consulting industry, as well as technical experts with rich experience in the Internet and blockchain technology and applications field. It is backed by the strong industry operation capabilities of its parent company - Askap Social Care Guangxun Health Consulting Group, jointly committed to creating "global high-quality digital medical health services".
             </div>
         </div>
 
@@ -39,7 +39,7 @@ function AboutUS() {
 
         <div className={style.AboutMainBottomBar2} >
             <div className={style.AboutMainBottomBar2title}>
-                Let discipline give you freedom
+                Precise care, extraordinary for love
             </div>
             <div className={style.AboutMainBottomBar2text}>
                 JoinCare is creating high-quality digital medical and health services globally, becoming a leader in the medical field.

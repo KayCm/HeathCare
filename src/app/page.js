@@ -5,7 +5,7 @@ import {useState} from "react";
 
 export default function Page() {
 
-    const [open,setOpen] = useState(false)
+    const [textopen,setTextOpen] = useState(false)
     const [bar3moveIn1,setBar3moveIn1] = useState(false)
     const [bar3moveIn2,setBar3moveIn2] = useState(false)
     const [bar3moveIn3,setBar3moveIn3] = useState(false)
@@ -16,18 +16,20 @@ export default function Page() {
 
           <div className={styles.bar1BgRightImg} />
 
-          <div className={styles.bar1BgText1}>Präzise Pflege mit großer Liebe<div style={{width:'10px',color:'#2DFAA5'}}>!</div></div>
+          <div className={styles.bar1BgText1}>Precise care, extraordinary for love<div style={{width:'10px',color:'#2DFAA5'}}>!</div></div>
           <div className={styles.bar1BgText2}>JoinCare</div>
           <div className={styles.bar1BgText3}>Global high-quality digital <br/>medical and health services.</div>
           <div className={styles.bar1BgText4}>Building the world's largest <br/>health management community</div>
 
 
-
           <div className={styles.bar1BgBarBox}>
 
-              <div className={styles.bar1BgBarBoxImg} />
+              <div className={styles.bar1BgBarBoxImgBox}>
+                  <div className={styles.bar1BgBarBoxImg} />
+                  <div className={styles.bar1BgBarBoxtext}>JoinCare is a Web3 health management platform <br/>that combines SocialFi and GameFi, using gamification <br/>to promote scientifically effective health management <br/>for millions of users.</div>
+              </div>
 
-              <div className={styles.bar1BgBarBoxtext}>JoinCare is a Web3 health management platform <br/>that combines SocialFi and GameFi, using gamification <br/>to promote scientifically effective health management <br/>for millions of users.</div>
+
 
               <div className={styles.barDownLoadBg} >
 
@@ -35,7 +37,7 @@ export default function Page() {
 
                   <div>
                       <div className={styles.barDownLoadBgTitle1}>JoinCare APP</div>
-                      <div className={styles.barDownLoadBgTitle2}>精准呵护,为爱不凡</div>
+                      <div className={styles.barDownLoadBgTitle2}>Precise care, extraordinary for love</div>
                   </div>
 
                   <div className={styles.barDownLoadBgBox}>
@@ -64,7 +66,9 @@ export default function Page() {
 
 
             <div>
-                    <div className={styles.bar2BgText}>JoinCare offers<p className={styles.bar2BgTextu1}> users</p></div>
+                <div style={{display:'flex',alignItems: 'center'}}>
+                    <div className={styles.bar2BgText}>JoinCare offers</div><div className={styles.bar2BgTextu1} style={{color:' #2DFAA5'}}>users</div>
+                </div>
                     <div className={styles.bar2BgText1}>Providing personalized <br/>health management plans<br/>Achieving revenue in the <br/>Web3 domain</div>
                     <div className={styles.bar2Bgbar1}>
                         <div className={styles.bar2Bgbar1Img}/>
@@ -90,7 +94,7 @@ export default function Page() {
 
 
 
-                        {open&&(<div>
+                        {textopen&&(<div>
 
 
                             <br/>analysis, health management system construction, financial investment,
@@ -108,7 +112,7 @@ export default function Page() {
                     </div>
 
                     <div onClick={()=>{
-                        setOpen(!open)
+                        setTextOpen(!textopen)
                     }} className={styles.bar2BgTextBtn}>Learn More<div className={styles.bar2BgTextBtnImg}/></div>
 
             </div>
@@ -116,7 +120,7 @@ export default function Page() {
         </div>
 
         <div className={styles.bar3Bg} >
-            <div className={styles.bar3BgTxt1}>Ai<p className={styles.bar3BgTxt2} style={{marginLeft:'8px'}}>intelligent diagnostic</p><p className={styles.bar3BgTxt3} style={{marginLeft:'8px'}}>and therapeutic health devices</p></div>
+            <div className={styles.bar3BgTxt1}>Ai<p className={styles.bar3BgTxt2} style={{marginLeft:'8px'}}>intelligent diagnostic</p><p className={styles.bar3BgTxt3} style={{marginLeft:'8px'}}>monitoring devices</p></div>
             <div className={styles.bar3BgBar}>
                 <div className={styles.bar3BgBarText1}>Promoting hundreds of millions of <br/>users to engage in scientifically <br/>effective health management.</div>
                 <div className={styles.bar3BgBarText2}>
@@ -242,8 +246,8 @@ export default function Page() {
 
         <div className={styles.bar5Bg} >
 
-            <div className={styles.bar5BgText1}>AI
-                <div className={styles.bar5BgText2} style={{marginLeft:'8px'}}>Healthcare Eco-System</div>
+            <div className={styles.bar5BgText1}>Ai
+                <div className={styles.bar5BgText2} style={{marginLeft:'8px'}}>JoinCare Eco-System</div>
                 <div className={styles.bar5BgText3} style={{marginLeft:'8px'}}>Partners</div>
             </div>
 
@@ -251,8 +255,11 @@ export default function Page() {
 
         <div className={styles.bar6Bg} ></div>
 
+
+         {/*mobile */}
+
         <div className={styles.bar1BgMobile} >
-            <div className={styles.Title1}>Präzise Pflege mit großer Liebe<div style={{color:'#2DFAA5'}}>!</div></div>
+            <div className={styles.Title1}>Precise care, extraordinary for love<div style={{color:'#2DFAA5'}}>!</div></div>
             <div className={styles.Title2}>JoinCare</div>
             <div className={styles.Title3}>Global high-quality digital medical and <br/>health services.</div>
             <div className={styles.Title4}>Building the world's largest health management community</div>

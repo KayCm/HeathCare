@@ -11,11 +11,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {delInfo, saveInfo, saveUserInfo, saveWallet} from "@/redux/features/auth";
 import Image from "next/image";
 
-import binance from '../../public/blocks/binance@1x.png'
-import eth from '../../public/blocks/ethereum@1x.png'
-import polugon from '../../public/blocks/polygon@1x.png'
-import solana from '../../public/blocks/solana@1x.png'
-import tron from '../../public/blocks/tron@1x.png'
+import binance from '../../public/newIcon/组 133630@2x (2).png'
+import eth from '../../public/newIcon/组 133630@2x.png'
+import polugon from '../../public/newIcon/组 133630@2x (1).png'
+import solana from '../../public/newIcon/组 133630@2x (3).png'
+// import tron from '../../public/blocks/tron@1x.png'
+
+
 
 window.globalProvider = {
     address:'',
@@ -25,7 +27,10 @@ window.globalProvider = {
 };
 
 const blockArr = [
-    solana,binance,eth,polugon
+    {name:'Solana',value:solana},
+    {name:'Binance',value:binance},
+    {name:'Etherum',value:eth},
+    {name:'Polugon',value:polugon}
 ]
 
 function TopNavBar() {
@@ -41,6 +46,9 @@ function TopNavBar() {
     const [addressChain,setAddressChain] = useState(0)
 
     const [menuCol, setMenuCol] = useState(true)
+
+    const [menuWpShow, setMenuWpShow] = useState(false)
+
     const [WhitePaperShow, setWhitePaperShow] = useState(false)
 
     const menuArr = [
@@ -142,7 +150,6 @@ function TopNavBar() {
         })
 
     }
-
     function loginWithEth(address,signature) {
 
         let url = "http://39.107.119.127:9595/user/login2"
@@ -287,7 +294,6 @@ function TopNavBar() {
             if (authtReducer.walletType){
                 setShow(true)
             }else{
-                // selectRefs.current?.show()
                 setBlockSelectShow(true)
             }
 
@@ -297,30 +303,42 @@ function TopNavBar() {
                  if (authtReducer.walletType){
                      setShow(false)
                  }else{
-                     // selectRefs.current?.show()
                      setBlockSelectShow(false)
                  }
 
              }}>
-            <div className={styles.menuLink}>{authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4):'Link wallet'}</div>
+            <div className={styles.menuLink}>
+
+                {authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4):(<div className={styles.menuLinkImgBox}>
+                    <div className={styles.menuLinkImg} />
+                    OKX
+                </div>)}
+
+            </div>
 
             {show&&(<div className={styles.menuLinkBox} >
-                <div onClick={()=>{
-                    setShow(false)
-                }} className={styles.menuLinkBoxSinge}>{fixAddressWithNum(authtReducer.walletAddress,4)}</div>
-                <div onClick={()=>{
-                    setShow(false)
-                    // selectRefs.current?.show()
+                <div className={styles.menuLinkBoxIn}>
+                    <div onClick={()=>{
+                        setShow(false)
+                    }} className={styles.menuLinkBoxSinge}>{fixAddressWithNum(authtReducer.walletAddress,4)}</div>
+                    <div onClick={()=>{
+                        setShow(false)
+                        // selectRefs.current?.show()
 
-                    dispatch(delInfo())
+                        dispatch(delInfo())
 
-                }} className={styles.menuLinkBoxSinge}>Logout</div>
+                    }} className={styles.menuLinkBoxSinge}>Logout</div>
+                </div>
             </div>)}
 
 
-            {blockSelectShow && (<div className={styles.menuBlockSelectAlertBox}>
-                {blockArr.map((value,index)=>{
-                    return(<Image onClick={()=>{
+            {blockSelectShow && (
+                <div className={styles.menuBlockSelectAlertBoxIn}>
+                    {blockArr.map((value1,index)=>{
+
+                     const {name,value} = value1
+
+                    return(<div onClick={()=>{
                         setBlockSelect(index)
                         setBlockSelectShow(false)
                         window.globalProvider.chainStr=index
@@ -339,7 +357,7 @@ function TopNavBar() {
 
                                 dispatch(saveWallet({walletType:'okx', walletAddress:res.toString(),walletChain:index}))
                             }).catch(err=>{
-
+                                alert('okx not install')
                             })
 
                         }else{
@@ -349,15 +367,20 @@ function TopNavBar() {
                                 localStorage.setItem('publicKey', res.toString())
                                 getStrAndSign(res.toString(),1)
                                 dispatch(saveWallet({walletType:'okx', walletAddress:res,walletChain:index}))
+                            }).catch(err=>{
+                                alert('okx not install')
                             })
 
                         }
 
 
-                    }} src={value} className={styles.menuBlockSelectAlertBoxSingle} width={132} height={32} />)
+                    }}  className={styles.menuBlockSelectAlertBoxSingle}>
+                        <Image src={value} width={24} height={24} alt="1"/>
+                        <div style={{marginLeft:'5px'}}>{name}</div>
+                    </div>)
 
                 })}
-            </div>)}
+                </div>)}
 
         </div>
         {contextHolder}
@@ -384,10 +407,11 @@ function TopNavBar() {
             {menuArr.map((item, index) => {
 
                 if (item.label == "WhitePaper"){
-                    return (<a key={index}   target="_blank" href="/wp_en.pdf">
-                        <div style={{ color: select === index ? '#1FF688' : '#B5B5B5' }}
-                             className={styles.mobileMenuItem} >{item.label}</div>
-                    </a>)
+                    return (
+                        <div onClick={()=>{
+                            setMenuWpShow(true)
+                        }} style={{ color: select === index ? '#1FF688' : '#B5B5B5' }}
+                             className={styles.mobileMenuItem} style={{height:'35px'}} >{item.label}</div>)
                 }else{
                     return (<div key={index} onClick={() => {
                         setMenuCol(true)
@@ -397,6 +421,23 @@ function TopNavBar() {
                 }
 
             })}
+
+            {menuWpShow&&(<div className={styles.mobileWpBg}>
+                <a onClick={()=>{
+                    setMenuWpShow(false)
+                    setMenuCol(true)
+                }}  className={styles.wpText} target="_blank" href="/wp_en.pdf">English</a>
+                <a onClick={()=>{
+                    setMenuWpShow(false)
+                    setMenuCol(true)
+                }}  className={styles.wpText} target="_blank" href="/wp_cn.pdf">Chinese</a>
+                <a onClick={()=>{
+                    setMenuWpShow(false)
+                    setMenuCol(true)
+                }}  className={styles.wpText} target="_blank" href="/wp_kor.pdf">Korean</a>
+            </div>)}
+
+
 
         </div>
     </div>)
