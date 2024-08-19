@@ -148,6 +148,7 @@ function TopNavBar() {
 
         }).catch(err=>{
             console.log(err)
+            errorRefs.current?.show(1,err.toString())
         })
 
     }
@@ -184,7 +185,7 @@ function TopNavBar() {
             dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
 
         }).catch(err=>{
-            errorRefs.current?.show("1",err.toString())
+            errorRefs.current?.show(1,err.toString())
             console.log(err)
         })
 
@@ -213,7 +214,7 @@ function TopNavBar() {
 
         }).catch(err=>{
 
-            errorRefs.current?.show("1",err.toString())
+            errorRefs.current?.show(1,err.toString())
 
 
             console.log(err)

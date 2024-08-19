@@ -102,7 +102,7 @@ export default function Mall() {
                     loginWithEth(address,res,index)
 
                 }).catch(err=>{
-
+                    errorRefs.current?.show(1,err.toString())
                 })
 
 
@@ -113,6 +113,8 @@ export default function Mall() {
                     console.log(res)
 
                     login(address,res,index)
+                }).catch(err=>{
+                    errorRefs.current?.show(1,err.toString())
                 })
             }
 
@@ -121,6 +123,7 @@ export default function Mall() {
 
         }).catch(err=>{
             console.log(err)
+            errorRefs.current?.show(1,err.toString())
         })
 
     }
@@ -633,7 +636,7 @@ export default function Mall() {
         <div className={style.mallTop} >
             <div>
                 <div className={style.mallToptitle1}>Welcome to the JoinCare Mall</div>
-                <div className={style.mallTopdetail}>Global premium digital healthcare services, leading in the medical field</div>
+                <div className={style.mallTopdetail}>Global premium digital healthcare services, leading in the medical field.</div>
             </div>
 
             <div className={style.mallTopbox} style={{display:'flex'}}>
