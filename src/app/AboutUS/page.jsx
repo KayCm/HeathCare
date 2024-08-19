@@ -56,7 +56,9 @@ function AboutUS() {
                 <div className={style.AboutMainBottomBar2BarBoxbox}>
                     <div className={style.AboutMainBottomBar2BarBoximg1}/>
                     <div className={style.AboutMainBottomBar2BarBoxtext1}>Business cooperation</div>
-                    <div className={style.AboutMainBottomBar2BarBoxtext2}>healthcare2000.1.1@gmail.com</div>
+                    <a href="mailto:Services@health-care.global">
+                        <div className={style.AboutMainBottomBar2BarBoxtext2}>Services@health-care.global</div>
+                    </a>
                 </div>
 
                 <div className={style.AboutMainBottomBar2BarBoxbox}>

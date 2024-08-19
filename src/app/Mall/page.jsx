@@ -15,6 +15,7 @@ import eth from '../../../public/newIcon/组 133630@2x.png'
 import polugon from '../../../public/newIcon/组 133630@2x (1).png'
 import solana from '../../../public/newIcon/组 133630@2x (3).png'
 import Image from "next/image";
+import AlertInfo from "@/Component/AlertInfo";
 
 const blockArr = [
     {name:'Solana',value:solana},
@@ -28,6 +29,8 @@ export default function Mall() {
     const router = useRouter()
 
     const dispatch = useDispatch()
+
+    const errorRefs = useRef(null);
 
     const [checkShow,SetCheckShow] = useState(false)
     const [addressShow,SetAddressShow] = useState(false)
@@ -65,20 +68,21 @@ export default function Mall() {
             address: address,
         }
 
-        console.log('params')
+        console.log('params getAddress')
         console.log(params)
 
         NetRequest(url,params).then(res=>{
             console.log(res)
 
-            dispatch(saveInfo({userName:res.data.name, userPhone:res.data.tel, userAddress:res.data.street}))
+            dispatch(saveInfo({shopingName:res.data.name, shopingPhone:res.data.tel, shopingAddress:res.data.street}))
 
         }).catch(err=>{
             console.log(err)
         })
 
     }
-    function getStrAndSign(address,type=0) {
+
+    function getStrAndSign(address,type=0,index) {
 
         let url = 'http://39.107.119.127:9595/user/str'
 
@@ -95,11 +99,10 @@ export default function Mall() {
             if (type == 1){
                 ConnectTools.okxEthSign(address,res.data).then(res=>{
 
-                    loginWithEth(address,res)
+                    loginWithEth(address,res,index)
 
                 }).catch(err=>{
 
-                    setLoginShow(false)
                 })
 
 
@@ -109,9 +112,7 @@ export default function Mall() {
                     console.log(res)
                     console.log(res)
 
-                    login(address,res)
-                }).catch(err=>{
-                    setLoginShow(false)
+                    login(address,res,index)
                 })
             }
 
@@ -120,11 +121,10 @@ export default function Mall() {
 
         }).catch(err=>{
             console.log(err)
-            setLoginShow(false)
         })
 
     }
-    function loginWithEth(address,signature) {
+    function loginWithEth(address,signature,index) {
 
         let url = "http://39.107.119.127:9595/user/login2"
 
@@ -153,16 +153,16 @@ export default function Mall() {
             console.log(res)
             console.log(res)
 
-            setLoginShow(false)
+            dispatch(saveWallet({walletType:'okx', walletAddress:address,walletChain:index}))
             dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
 
         }).catch(err=>{
+            errorRefs.current?.show(2,err.toString())
             console.log(err)
-            setLoginShow(false)
         })
 
     }
-    function login(address,signature) {
+    function login(address,signature,index) {
 
         // /user/login
 
@@ -180,12 +180,16 @@ export default function Mall() {
             console.log(res)
             console.log(res)
             console.log(res)
-            setLoginShow(false)
+
+            dispatch(saveWallet({walletType:'okx', walletAddress:address,walletChain:index}))
             dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
 
         }).catch(err=>{
+
+            errorRefs.current?.show(2,err.toString())
+
+
             console.log(err)
-            setLoginShow(false)
         })
 
     }
@@ -241,6 +245,8 @@ export default function Mall() {
 
                 <div onClick={()=>{
 
+                    setLoginShow(false)
+
                     window.globalProvider.chainStr=loginChainSelect
 
 
@@ -253,9 +259,9 @@ export default function Mall() {
 
                             getAddress(res.toString())
                             //
-                            getStrAndSign(res.toString(),0)
+                            getStrAndSign(res.toString(),0,loginChainSelect)
 
-                            dispatch(saveWallet({walletType:'okx', walletAddress:res.toString(),walletChain:loginChainSelect}))
+                            // dispatch(saveWallet({walletType:'okx', walletAddress:res.toString(),walletChain:loginChainSelect}))
                         }).catch(err=>{
                             alert('okx not install')
                         })
@@ -266,8 +272,8 @@ export default function Mall() {
                             console.log("res")
                             localStorage.setItem('publicKey', res.toString())
                             getAddress(res.toString())
-                            getStrAndSign(res.toString(),1)
-                            dispatch(saveWallet({walletType:'okx', walletAddress:res,walletChain:loginChainSelect}))
+                            getStrAndSign(res.toString(),1,loginChainSelect)
+                            // dispatch(saveWallet({walletType:'okx', walletAddress:res,walletChain:loginChainSelect}))
                         }).catch(err=>{
                             alert('okx not install')
                         })
@@ -411,26 +417,26 @@ export default function Mall() {
         let params = {
             content : name,
             address: authtReducer.walletAddress,
-            // tel:phone,
+            tel:phone,
             // country:'1',
             // city:'1',
             // code:'1',
-            // street:address,
+            street:address,
             // community:'1'
         }
 
-        console.log('params')
+        console.log('params123')
         console.log(params)
 
         NetRequest(url,params).then(res=>{
             console.log(res)
 
             getAddress(authtReducer.walletAddress)
-            alert('save success')
+
+            errorRefs.current?.show(3,"Save Address Success")
         }).catch(err=>{
             console.log(err)
-
-            alert('save failed')
+            errorRefs.current?.show(1,err.toString())
         })
 
 
@@ -580,31 +586,31 @@ export default function Mall() {
         })
     }
 
-    function getAddress(address) {
-
-        let url = 'http://39.107.119.127:9595/user/get/address'
-        let params = {
-            tel:'',
-            address: address,
-        }
-
-        console.log('params')
-        console.log(params)
-
-        NetRequest(url,params).then(res=>{
-            console.log(res)
-
-            setNameStr(res.data.name)
-            setAddressStr(res.data.street)
-            setPhoneStr(res.data.tel)
-
-            dispatch(saveInfo({userName:res.data.name, userPhone:res.data.tel, userAddress:res.data.street}))
-
-        }).catch(err=>{
-            console.log(err)
-        })
-
-    }
+    // function getAddress(address) {
+    //
+    //     let url = 'http://39.107.119.127:9595/user/get/address'
+    //     let params = {
+    //         tel:'',
+    //         address: address,
+    //     }
+    //
+    //     console.log('params')
+    //     console.log(params)
+    //
+    //     NetRequest(url,params).then(res=>{
+    //         console.log(res)
+    //
+    //         setNameStr(res.data.name)
+    //         setAddressStr(res.data.street)
+    //         setPhoneStr(res.data.tel)
+    //
+    //         dispatch(saveInfo({userName:res.data.name, userPhone:res.data.tel, userAddress:res.data.street}))
+    //
+    //     }).catch(err=>{
+    //         console.log(err)
+    //     })
+    //
+    // }
 
     function getInvCode() {
 
@@ -632,6 +638,7 @@ export default function Mall() {
 
             <div className={style.mallTopbox} style={{display:'flex'}}>
                 <div onClick={()=>{
+
 
                     if (authtReducer.walletType){
                         SetAddressShow(true)
@@ -684,43 +691,11 @@ export default function Mall() {
 
             </div>
 
-            {/*<div className={style.mallMiddleBoxDetailOut}>*/}
-            {/*    <div className={style.mallMiddleBoxDetail}>*/}
-            {/*        <div className={style.mallMiddleBoxDetail_img1}/>*/}
-            {/*        /!*<div className={style.mallMiddleBoxDetail_img_mask} />*!/*/}
-            {/*        <div className={style.mallMiddleBoxDetail_text1}>Blood glucose monitor<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>*/}
-            {/*    </div>*/}
-            {/*    /!*<div className={style.mallMiddleBoxDetailBtn}>*!/*/}
-            {/*    /!*    Buy Now*!/*/}
-            {/*    /!*</div>*!/*/}
-            {/*</div>*/}
-
-            {/*<div className={style.mallMiddleBoxDetailOut}>*/}
-            {/*    <div className={style.mallMiddleBoxDetail}>*/}
-            {/*        <div className={style.mallMiddleBoxDetail_img2}/>*/}
-            {/*        /!*<div className={style.mallMiddleBoxDetail_img_mask} />*!/*/}
-            {/*        <div className={style.mallMiddleBoxDetail_text1}>Human Health*/}
-            {/*            Diagnostic Device<br/><div style={{fontSize:'14px',fontWeight:'400'}}>Stay tuned~</div></div>*/}
-            {/*    </div>*/}
-            {/*    /!*<div className={style.mallMiddleBoxDetailBtn}>*!/*/}
-            {/*    /!*    Buy Now*!/*/}
-            {/*    /!*</div>*!/*/}
-            {/*</div>*/}
 
 
         </div>
 
-        {/*<AlertConnectSelect refs={selectRefs} successBlock={(res)=>{*/}
-
-        {/*    console.log(res)*/}
-
-        {/*    getAddress(res)*/}
-
-        {/*    dispatch(saveWallet({walletType:res.type, walletAddress:res.res}))*/}
-
-        {/*    // sendUSDT('9awYA3gj3djkbXSMushuTbfin433WbShDR85M1UbGQX4',0.001)*/}
-
-        {/*}} />*/}
+        <AlertInfo refs={errorRefs}/>
 
         {alertCheck()}
 

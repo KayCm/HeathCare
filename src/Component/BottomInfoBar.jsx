@@ -23,7 +23,7 @@ function BottomInfoBar() {
                     window.open('https://discord.gg/VXFxcwkK')
                 }} style={{color:'#fff'}}/>
 
-                <a href="mailto:ervices@health-care.global">
+                <a href="mailto:services@health-care.global">
                     <SendOutlined style={{color:'#fff',cursor: 'pointer'}}/>
                 </a>
             </div>

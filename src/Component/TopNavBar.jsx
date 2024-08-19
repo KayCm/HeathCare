@@ -15,6 +15,7 @@ import binance from '../../public/newIcon/组 133630@2x (2).png'
 import eth from '../../public/newIcon/组 133630@2x.png'
 import polugon from '../../public/newIcon/组 133630@2x (1).png'
 import solana from '../../public/newIcon/组 133630@2x (3).png'
+import AlertInfo from "@/Component/AlertInfo";
 // import tron from '../../public/blocks/tron@1x.png'
 
 
@@ -69,6 +70,7 @@ function TopNavBar() {
     let pathArr =  pathName.split('/')
 
     const selectRefs = useRef(null);
+    const errorRefs = useRef(null);
 
     const authtReducer = useSelector((state)=>state.authReducer)
 
@@ -99,16 +101,15 @@ function TopNavBar() {
         NetRequest(url,params).then(res=>{
             console.log(res)
 
-            dispatch(saveInfo({userName:res.data.name, userPhone:res.data.tel, userAddress:res.data.street}))
+            dispatch(saveInfo({shopingName:res.data.name, shopingPhone:res.data.tel, shopingAddress:res.data.street}))
+
 
         }).catch(err=>{
             console.log(err)
         })
 
     }
-
-
-    function getStrAndSign(address,type=0) {
+    function getStrAndSign(address,type=0,index) {
 
         let url = 'http://39.107.119.127:9595/user/str'
 
@@ -125,7 +126,7 @@ function TopNavBar() {
             if (type == 1){
                 ConnectTools.okxEthSign(address,res.data).then(res=>{
 
-                    loginWithEth(address,res)
+                    loginWithEth(address,res,index)
 
                 }).catch(err=>{
 
@@ -138,7 +139,7 @@ function TopNavBar() {
                     console.log(res)
                     console.log(res)
 
-                    login(address,res)
+                    login(address,res,index)
                 })
             }
 
@@ -150,7 +151,7 @@ function TopNavBar() {
         })
 
     }
-    function loginWithEth(address,signature) {
+    function loginWithEth(address,signature,index) {
 
         let url = "http://39.107.119.127:9595/user/login2"
 
@@ -179,14 +180,16 @@ function TopNavBar() {
             console.log(res)
             console.log(res)
 
+            dispatch(saveWallet({walletType:'okx', walletAddress:address,walletChain:index}))
             dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
 
         }).catch(err=>{
+            errorRefs.current?.show("1",err.toString())
             console.log(err)
         })
 
     }
-    function login(address,signature) {
+    function login(address,signature,index) {
 
         // /user/login
 
@@ -205,9 +208,14 @@ function TopNavBar() {
             console.log(res)
             console.log(res)
 
+            dispatch(saveWallet({walletType:'okx', walletAddress:address,walletChain:index}))
             dispatch(saveUserInfo({...res.data.data,token:res.data.token}))
 
         }).catch(err=>{
+
+            errorRefs.current?.show("1",err.toString())
+
+
             console.log(err)
         })
 
@@ -309,6 +317,9 @@ function TopNavBar() {
              }}>
             <div className={styles.menuLink}>
 
+
+                {/*{authtReducer.walletAddress}*/}
+
                 {authtReducer.walletAddress?fixAddressWithNum(authtReducer.walletAddress,4):(<div className={styles.menuLinkImgBox}>
                     <div className={styles.menuLinkImg} />
                     OKX
@@ -353,9 +364,9 @@ function TopNavBar() {
 
                                 getAddress(res.toString())
 
-                                getStrAndSign(res.toString(),0)
+                                getStrAndSign(res.toString(),0,index)
 
-                                dispatch(saveWallet({walletType:'okx', walletAddress:res.toString(),walletChain:index}))
+
                             }).catch(err=>{
                                 alert('okx not install')
                             })
@@ -365,8 +376,10 @@ function TopNavBar() {
                             ConnectTools.okxEthConnect(index).then(res=>{
                                 console.log("res")
                                 localStorage.setItem('publicKey', res.toString())
-                                getStrAndSign(res.toString(),1)
-                                dispatch(saveWallet({walletType:'okx', walletAddress:res,walletChain:index}))
+
+                                getAddress(res.toString())
+                                getStrAndSign(res.toString(),1,index)
+
                             }).catch(err=>{
                                 alert('okx not install')
                             })
@@ -440,6 +453,9 @@ function TopNavBar() {
 
 
         </div>
+
+
+        <AlertInfo refs={errorRefs}/>
     </div>)
 
 }

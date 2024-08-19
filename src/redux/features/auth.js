@@ -30,9 +30,9 @@ export const auth = createSlice({
         },
         saveInfo:(state,action)=>{
             return{...state,
-                shopingName:action.payload.userName,
-                shopingPhone:action.payload.userPhone,
-                shopingAddress:action.payload.userAddress}
+                shopingName:action.payload.shopingName,
+                shopingPhone:action.payload.shopingPhone,
+                shopingAddress:action.payload.shopingAddress}
         },
         saveWallet:(state,action)=>{
             return{...state,walletType:action.payload.walletType,walletChain:action.payload.walletChain,
