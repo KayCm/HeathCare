@@ -523,6 +523,10 @@
   }
 }
 
+.mallMobileMiddle{
+  display: none;
+}
+
 @media  (min-width: 300px) and (max-width: 1025px) {
   .mallTop {
     width: 343px;
@@ -545,7 +549,7 @@
   .mallMiddle {
     width: 343px;
     margin: 100px auto ;
-    display: block;
+    display: none;
   }
   .mallMiddleBoxDetailOut {
     width: 343px;
@@ -595,5 +599,55 @@
     bottom: 12px;
     right: 12px;
     display: none;
+  }
+  .mallMobileMiddle{
+    height: 70vh;
+    width: 100vw;
+    //background-color: #BBFF19;
+    display:inline-block;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+  }
+
+  .mallMobileMiddleBg{
+    height: 304px;
+    width: 343px;
+    background: url("../../../public/mobile/矩形 176@2x (1).png");
+    background-size: 343px 304px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mallMobileMiddleBgText1{
+    font-family: PingFang TC, PingFang TC;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 20px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+    margin-top: 20px;
+  }
+  .mallMobileMiddleBgText{
+    font-family: PingFang TC, PingFang TC;
+    font-weight: 500;
+    font-size: 13px;
+    color: #FFFFFF;
+    line-height: 18px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+    margin-top: 20px;
+  }
+
+  .mallMobileMiddleBgImg{
+    height: 131px;
+    width: 299px;
+    background: url("../../../public/mobile/蒙版组 26@2x (1).png");
+    background-size: 299px 131px;
   }
 }

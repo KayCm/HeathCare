@@ -667,7 +667,6 @@ export default function Mall() {
         </div>
 
         <div className={style.mallMiddle}>
-
             <div className={style.mallMiddleBoxDetailOut}>
 
                 <div className={style.mallMiddleBoxDetail}>
@@ -693,8 +692,21 @@ export default function Mall() {
                 </div>
 
             </div>
+        </div>
 
+        <div className={style.mallMobileMiddle}>
 
+            <div className={style.mallMobileMiddleBg}>
+                <div className={style.mallMobileMiddleBgImg}/>
+
+                <div className={style.mallMobileMiddleBgText}>
+                    Blood pressure detector <br/>Human Health Diagnostic Device <br/>Blood glucose monitor
+                </div>
+
+                <div className={style.mallMobileMiddleBgText1}>
+                    $699.00
+                </div>
+            </div>
 
         </div>
 
