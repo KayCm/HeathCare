@@ -25,7 +25,8 @@ export default function OrderList() {
 
         let pubKey = localStorage.getItem('publicKey')
 
-        let url = 'http://39.107.119.127:9595/transfer/list'
+        //
+        let url = 'https://www.cyfcc.cc/transfer/list'
         let params = {
             page:1,
             page_size:10,

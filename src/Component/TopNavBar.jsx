@@ -89,7 +89,7 @@ function TopNavBar() {
 
     function getAddress(address) {
 
-        let url = 'http://39.107.119.127:9595/user/get/address'
+        let url = 'https://www.cyfcc.cc/user/get/address'
         let params = {
             tel:'',
             address: address,
@@ -111,7 +111,7 @@ function TopNavBar() {
     }
     function getStrAndSign(address,type=0,index) {
 
-        let url = 'http://39.107.119.127:9595/user/str'
+        let url = 'https://www.cyfcc.cc/user/str'
 
         let params = {
             address:address
@@ -154,7 +154,7 @@ function TopNavBar() {
     }
     function loginWithEth(address,signature,index) {
 
-        let url = "http://39.107.119.127:9595/user/login2"
+        let url = "https://www.cyfcc.cc/user/login2"
 
         let chain = 0
 
@@ -194,7 +194,7 @@ function TopNavBar() {
 
         // /user/login
 
-        let url = 'http://39.107.119.127:9595/user/login'
+        let url = 'https://www.cyfcc.cc/user/login'
 
         let params = {
             address:address,

@@ -62,7 +62,7 @@ export default function Mall() {
 
     function getAddress(address) {
 
-        let url = 'http://39.107.119.127:9595/user/get/address'
+        let url = 'https://www.cyfcc.cc/user/get/address'
         let params = {
             tel:'',
             address: address,
@@ -84,7 +84,7 @@ export default function Mall() {
 
     function getStrAndSign(address,type=0,index) {
 
-        let url = 'http://39.107.119.127:9595/user/str'
+        let url = 'https://www.cyfcc.cc/user/str'
 
         let params = {
             address:address
@@ -129,7 +129,7 @@ export default function Mall() {
     }
     function loginWithEth(address,signature,index) {
 
-        let url = "http://39.107.119.127:9595/user/login2"
+        let url = "https://www.cyfcc.cc/user/login2"
 
         let chain = 0
 
@@ -169,7 +169,7 @@ export default function Mall() {
 
         // /user/login
 
-        let url = 'http://39.107.119.127:9595/user/login'
+        let url = 'https://www.cyfcc.cc/user/login'
 
         let params = {
             address:address,
@@ -416,7 +416,7 @@ export default function Mall() {
 
     function saveAddress(name,address,phone) {
 
-        let url = 'http://39.107.119.127:9595/user/msg/add'
+        let url = 'https://www.cyfcc.cc/user/msg/add'
         let params = {
             content : name,
             address: authtReducer.walletAddress,
@@ -554,7 +554,7 @@ export default function Mall() {
         // setAddressStr(localStorage.getItem('address'))
         // setPhoneStr(localStorage.getItem('phone'))
 
-        let url = 'http://39.107.119.127:9595/transfer/add'
+        let url = 'https://www.cyfcc.cc/transfer/add'
         let params = {
             name:authtReducer.userName,
             address:pubKey,
@@ -619,7 +619,7 @@ export default function Mall() {
 
         // /user/code/get
 
-        let url = 'http://39.107.119.127:9595/user/code/get'
+        let url = 'https://www.cyfcc.cc/user/code/get'
 
         NetRequest(url,null).then(res=>{
             console.log(res)
